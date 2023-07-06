@@ -1,22 +1,35 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Image } from "react-native";
+import React from "react";
 
-const Profile = () => {
-  return (
-    <View style ={styles.profile}>
-      <Text>Profile</Text>
-    </View>
-  )
+interface Props {
+  name: string;
+  avatar: string;
 }
 
-export default Profile
+const Profile = ({ name, avatar }: Props) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.profile}>
+        <Text>{name}</Text>
+        <View>
+          <Image source={{ uri: avatar }} />
+        </View>
+      </View>
+    </View>
+  );
+};
+
+export default Profile;
 
 const styles = StyleSheet.create({
-    profile : {
-        display: 'flex',
-        width: '90%',
-        height: 60,
-        backgroundColor: 'blue',
-        alignItems: 'center'
-    }
-})
+  container: {
+    display: "flex",
+    backgroundColor: "green",
+    alignContent: "center",
+  },
+  profile: {
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 40,
+  },
+});
