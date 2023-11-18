@@ -6,9 +6,9 @@ import { SafeAreaView } from "react-native";
 //://www.youtube.com/watch?v=WMOPvJot0yI
 
 //screens
-import Home from "./components/screen/Home";
-import Menu from "./components/screen/Menu";
-import Subject from "./components/screen/Subject";
+import Home from "../screen/Home";
+import Menu from "../screen/Menu";
+import Subject from "../screen/Subject";
 
 //Use Icon
 import { Feather } from "@expo/vector-icons";
