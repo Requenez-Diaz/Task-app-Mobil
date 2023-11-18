@@ -1,19 +1,19 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 
-interface Props {
+interface ProfileProps {
   name: string;
-  avatar: string;
+  avatar: {};
 }
 
-const Profile = ({ name, avatar }: Props) => {
+const Profile = ({ name, avatar }: ProfileProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.profile}>
-        <Text>{name}</Text>
         <View>
-          <Image source={{ uri: avatar }} />
+          <Image style={styles.image} source={avatar} />
         </View>
+        <Text style={styles.text}>{name}</Text>
       </View>
     </View>
   );
@@ -24,12 +24,24 @@ export default Profile;
 const styles = StyleSheet.create({
   container: {
     display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
     backgroundColor: "green",
-    alignContent: "center",
+    alignItems: "center",
+    padding: 20,
   },
   profile: {
-    justifyContent: "center",
+    flexDirection: "row",
     alignItems: "center",
-    margin: 40,
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginLeft: 10,
+  },
+  image: {
+    width: 60,
+    height: 60,
+    borderRadius: 50,
   },
 });

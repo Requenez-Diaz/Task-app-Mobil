@@ -6,8 +6,8 @@ const ProfileProps = () => {
   return (
     <View>
       <Profile
-        name=' Juan'
-        avatar='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0d_-EsmSH5uXGsa1TJean_0YpsJ7PCBgq8px6xq_L9a8QQeu24gztXo-SpnrRIB6sJuw&usqp=CAU'
+        name='Avimilex Requenez Diaz'
+        avatar={{ uri: "https://i.imgur.com/mxMUYqt.gif" }}
       />
     </View>
   );
