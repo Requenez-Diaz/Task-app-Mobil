@@ -3,13 +3,21 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 
-const Subject = () => {
+interface Props {
+  navigation: any;
+}
+
+const Subject = ({ navigation }: Props):JSX.Element => {
+
+  const handleSubjectPress = () => {
+    navigation.navigate('ClassEnglish');
+};
 
   return (
     <View style={styles.container}>
       <Text>My Subjects</Text>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={handleSubjectPress}>
         <View style={styles.clas}>
           <View style={styles.icons}>
             <AntDesign name='book' size={60} color='white' />
