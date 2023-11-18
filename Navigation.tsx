@@ -6,26 +6,24 @@ import { SafeAreaView } from "react-native";
 //://www.youtube.com/watch?v=WMOPvJot0yI
 
 //screens
-import Home from "./screen/Home";
-import Menu from "./screen/Menu";
-import Subject from "./screen/Subject";
+import Home from "./components/screen/Home";
+import Menu from "./components/screen/Menu";
+import Subject from "./components/screen/Subject";
 
 //Use Icon
 import { Feather } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { TouchableOpacity, View } from "react-native";
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from "@expo/vector-icons";
 
-
-
-import { Octicons } from '@expo/vector-icons';
+import { Octicons } from "@expo/vector-icons";
 
 const HomeStackNaviagator = createNativeStackNavigator();
 
 function Tacks() {
   return (
-    <HomeStackNaviagator.Navigator initialRouteName="Home">
-      <HomeStackNaviagator.Screen name="Home" component={Home} />
+    <HomeStackNaviagator.Navigator initialRouteName='Home'>
+      <HomeStackNaviagator.Screen name='Home' component={Home} />
     </HomeStackNaviagator.Navigator>
   );
 }
@@ -35,14 +33,14 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName='Home'
       screenOptions={{
         tabBarActiveTintColor: "#ffffff",
         tabBarActiveBackgroundColor: "green",
       }}
     >
       <Tab.Screen
-        name="Dashboard"
+        name='Dashboard'
         component={Home}
         options={{
           headerStyle: {
@@ -57,7 +55,7 @@ function MyTabs() {
           headerLeft: () => (
             <View style={{ paddingLeft: 10, marginLeft: 10 }}>
               <TouchableOpacity>
-                <Feather name="menu" size={24} color="white" />
+                <Feather name='menu' size={24} color='white' />
               </TouchableOpacity>
             </View>
           ),
@@ -65,7 +63,7 @@ function MyTabs() {
           headerRight: () => (
             <TouchableOpacity>
               <View style={{ paddingRight: 10, marginRight: 10 }}>
-                <AntDesign name="search1" size={24} color="white" />
+                <AntDesign name='search1' size={24} color='white' />
               </View>
             </TouchableOpacity>
           ),
@@ -73,13 +71,13 @@ function MyTabs() {
           headerTitleAlign: "center",
           tabBarLabel: "",
           tabBarIcon: ({ color: gray, size }) => (
-            <Octicons name="home" size={24} color= {gray} />
+            <Octicons name='home' size={24} color={gray} />
           ),
           headerShown: false,
         }}
       />
       <Tab.Screen
-        name="Subject"
+        name='Subject'
         component={Subject}
         options={{
           headerStyle: {
@@ -93,14 +91,14 @@ function MyTabs() {
           headerTitleAlign: "center",
           tabBarLabel: "",
           tabBarIcon: ({ color: gray, size }) => (
-            <MaterialIcons name="library-books" size={24} color={gray} />
+            <MaterialIcons name='library-books' size={24} color={gray} />
           ),
           headerShown: false,
         }}
       />
 
       <Tab.Screen
-        name="Menu"
+        name='Menu'
         component={Menu}
         options={{
           headerStyle: {
@@ -114,7 +112,7 @@ function MyTabs() {
           headerTitleAlign: "center",
           tabBarLabel: "",
           tabBarIcon: ({ color: gray, size }) => (
-            <MaterialIcons name="library-add" size={24} color={gray} />
+            <MaterialIcons name='library-add' size={24} color={gray} />
           ),
           headerShown: false,
         }}
