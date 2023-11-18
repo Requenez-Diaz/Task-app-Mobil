@@ -7,12 +7,11 @@ import CardContainer from "../home/cards/CardContainer";
 // create a component
 const MyComponent = () => {
   return (
-    <div>
+    <View>
       <ProfileProps />
       <CardContainer />
-    </div>
+    </View>
   );
 };
 
-//make this component available to the app
 export default MyComponent;
