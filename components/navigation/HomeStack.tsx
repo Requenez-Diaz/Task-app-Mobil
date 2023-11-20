@@ -1,23 +1,24 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import LogIn from "../Login/LogIn";
+
 import Home from "../screen/Home";
 import MainTabs from "./MainTabs";
+import RegisterLogin from "../Login/RegisterLogin";
+import LogIn from "../Login/LogIn";
 import ClassLiteratura from "../screen/subjects/ClassLiteratura";
-import ClassMatematica from "../screen/subjects/ClassMatematica";
-import ClassCiencia from "../screen/subjects/ClassCiencia";
-import ClassEnglish from "../screen/subjects/ClassEnglish";
-import ClassHistoria from "../screen/subjects/ClassHistoria";
-import ClassArte from "../screen/subjects/ClassArte";
-import Subject from "../screen/Subject";
-
 import TasckLiteratura from "../screen/tasks/TasckLiteratura";
 import TasckMatematica from "../screen/tasks/TasckMatematica";
-import TasckEnglish from "../screen/tasks/TasckEnglish";
-import TasckHistoria from "../screen/tasks/TasckHistoria";
-import TasckCiencia from "../screen/tasks/TasckCiencia";
+import ClassMatematica from "../screen/subjects/ClassMatematica";
+import ClassEnglish from "../screen/subjects/ClassEnglish";
 import GaleriaArte from "../screen/tasks/GaleriaArte";
+import ClassArte from "../screen/subjects/ClassArte";
+import TasckHistoria from "../screen/tasks/TasckHistoria";
+import ClassHistoria from "../screen/subjects/ClassHistoria";
+import TasckCiencia from "../screen/tasks/TasckCiencia";
+import ClassCiencia from "../screen/subjects/ClassCiencia";
+import TasckEnglish from "../screen/tasks/TasckEnglish";
+import Subject from "../screen/Subject";
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,13 @@ const HomeStack = () => {
         <Stack.Screen
           name='Login'
           component={LogIn}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name='Register'
+          component={RegisterLogin}
           options={{
             headerShown: false,
           }}
@@ -50,14 +58,14 @@ const HomeStack = () => {
           name='ClassLiteratura'
           component={ClassLiteratura}
           options={{
-            headerShown: false,
+            headerShown: true,
           }}
         />
         <Stack.Screen
           name='TasckLiteratura'
           component={TasckLiteratura}
           options={{
-            headerShown: false,
+            headerShown: true,
           }}
         />
         <Stack.Screen

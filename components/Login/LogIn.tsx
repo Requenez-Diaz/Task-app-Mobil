@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import CustomButton from "./CustomButton";
 
 interface NavigationProps {
   navigation: any;
@@ -16,13 +17,17 @@ const LogIn = ({ navigation }: NavigationProps) => {
     navigation.navigate("Tab");
   };
 
+  const handleRegister = () => {
+    navigation.navigate("Register");
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
       <View style={styles.formContainer}>
         <TextInput
           style={styles.input}
-          placeholder='User name'
+          placeholder='Email'
           placeholderTextColor='#666'
         />
         <TextInput
@@ -31,9 +36,21 @@ const LogIn = ({ navigation }: NavigationProps) => {
           placeholderTextColor='#666'
           secureTextEntry={true}
         />
+
+        <TouchableOpacity style={styles.forgotPassword}>
+          <Text style={styles.forgotPasswordText}>Forgot your password</Text>
+        </TouchableOpacity>
+
         <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
+
+        <CustomButton
+          onPress={handleRegister}
+          title='Register'
+          buttonStyle={{ backgroundColor: "green", marginTop: 5 }}
+          textStyle={{ color: "white" }}
+        />
       </View>
     </View>
   );
@@ -68,11 +85,20 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     alignItems: "center",
+    marginTop: 10,
   },
   buttonText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
+  },
+  forgotPassword: {
+    alignItems: "center",
+    marginTop: 10,
+  },
+  forgotPasswordText: {
+    color: "#3498db",
+    textDecorationLine: "underline",
   },
 });
 
