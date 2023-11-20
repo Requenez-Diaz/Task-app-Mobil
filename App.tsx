@@ -1,6 +1,5 @@
-import Navigations from "./components/navigation/MainTabs";
-import NavigationTabs from "./components/navigation/NavigationTabs";
+import HomeStack from "./components/navigation/HomeStack";
 
 export default function App() {
-  return <NavigationTabs />;
+  return <HomeStack />;
 }

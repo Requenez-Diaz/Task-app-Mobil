@@ -1,7 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const RegisterLogin = () => {
+interface RegisterProps {
+  navigation: any;
+}
+
+const RegisterLogin = ({ navigation }: RegisterProps) => {
   return (
     <View>
       <Text>RegisterLogin</Text>

@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+// MainTabs.tsx
+
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Octicons, MaterialIcons } from "@expo/vector-icons";
 import Menu from "../screen/Menu";
 import Subject from "../screen/Subject";
-import HomeStack from "./HomeStack";
+import Home from "../screen/Home";
 
 const Tab = createBottomTabNavigator();
 
-export default function MyTabs() {
+const MainTabs = () => {
   return (
     <Tab.Navigator
-      initialRouteName='Login'
+      initialRouteName='Dashboard'
       screenOptions={{
         tabBarActiveTintColor: "#ffffff",
         tabBarActiveBackgroundColor: "green",
@@ -18,12 +20,12 @@ export default function MyTabs() {
     >
       <Tab.Screen
         name='Dashboard'
-        component={HomeStack}
+        component={Home}
         options={{
           headerShown: false,
           tabBarLabel: "",
-          tabBarIcon: ({ color: gray }) => (
-            <Octicons name='home' size={24} color={gray} />
+          tabBarIcon: ({ color }) => (
+            <Octicons name='home' size={24} color={color} />
           ),
         }}
       />
@@ -41,8 +43,8 @@ export default function MyTabs() {
           },
           headerTitleAlign: "center",
           tabBarLabel: "",
-          tabBarIcon: ({ color: gray }) => (
-            <MaterialIcons name='library-books' size={24} color={gray} />
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name='library-books' size={24} color={color} />
           ),
           headerShown: false,
         }}
@@ -61,12 +63,14 @@ export default function MyTabs() {
           },
           headerTitleAlign: "center",
           tabBarLabel: "",
-          tabBarIcon: ({ color: gray }) => (
-            <MaterialIcons name='library-add' size={24} color={gray} />
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name='library-add' size={24} color={color} />
           ),
           headerShown: false,
         }}
       />
     </Tab.Navigator>
   );
-}
+};
+
+export default MainTabs;

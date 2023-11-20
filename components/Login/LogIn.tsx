@@ -1,4 +1,3 @@
-import Button from "../home/cards/Button";
 import React from "react";
 import {
   StyleSheet,
@@ -14,24 +13,67 @@ interface NavigationProps {
 
 const LogIn = ({ navigation }: NavigationProps) => {
   const handleLogin = () => {
-    // Navigate to the Home screen
-    navigation.navigate("Home");
+    navigation.navigate("Tab");
   };
 
   return (
-    <View>
-      <Text>Login</Text>
-      <View>
-        <TextInput placeholder='User name' />
-        <TextInput placeholder='Password' />
-        <TouchableOpacity onPress={handleLogin}>
-          <Text>Login</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Login</Text>
+      <View style={styles.formContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder='User name'
+          placeholderTextColor='#666'
+        />
+        <TextInput
+          style={styles.input}
+          placeholder='Password'
+          placeholderTextColor='#666'
+          secureTextEntry={true}
+        />
+        <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+          <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
 };
 
-export default LogIn;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  formContainer: {
+    width: "80%",
+  },
+  input: {
+    height: 40,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 15,
+    paddingLeft: 10,
+    color: "#333",
+  },
+  loginButton: {
+    backgroundColor: "green",
+    padding: 10,
+    borderRadius: 5,
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+});
 
-const styles = StyleSheet.create({});
+export default LogIn;
