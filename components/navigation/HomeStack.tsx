@@ -1,26 +1,41 @@
+import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-
-import Home from "../screen/Home";
+import { NavigationContainer } from "@react-navigation/native";
 import LogIn from "../Login/LogIn";
+import Home from "../screen/Home";
+import MainTabs from "./MainTabs";
 
-export default function HomeStack() {
-  const HomeStackNavigator = createStackNavigator();
+const Stack = createStackNavigator();
+
+const HomeStack = () => {
   return (
-    <HomeStackNavigator.Navigator initialRouteName='Login'>
-      <HomeStackNavigator.Screen
-        name='Login'
-        component={LogIn}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <HomeStackNavigator.Screen
-        name='Home'
-        component={Home}
-        options={{
-          headerShown: false,
-        }}
-      />
-    </HomeStackNavigator.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Login'>
+        <Stack.Screen
+          name='Login'
+          component={LogIn}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name='Home'
+          component={Home}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name='Tab'
+          component={MainTabs}
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
+
+export default HomeStack;
