@@ -10,8 +10,14 @@ import ClassCiencia from "../screen/subjects/ClassCiencia";
 import ClassEnglish from "../screen/subjects/ClassEnglish";
 import ClassHistoria from "../screen/subjects/ClassHistoria";
 import ClassArte from "../screen/subjects/ClassArte";
-import TaskLiteratura from "../screen/tasks/TasckLiteratura";
 import Subject from "../screen/Subject";
+
+import TasckLiteratura from "../screen/tasks/TasckLiteratura";
+import TasckMatematica from "../screen/tasks/TasckMatematica";
+import TasckEnglish from "../screen/tasks/TasckEnglish";
+import TasckHistoria from "../screen/tasks/TasckHistoria";
+import TasckCiencia from "../screen/tasks/TasckCiencia";
+import GaleriaArte from "../screen/tasks/GaleriaArte";
 
 const Stack = createStackNavigator();
 
@@ -48,8 +54,8 @@ const HomeStack = () => {
           }}
         />
         <Stack.Screen
-          name='TaskLiteratura'
-          component={TaskLiteratura}
+          name='TasckLiteratura'
+          component={TasckLiteratura}
           options={{
             headerShown: false,
           }}
@@ -62,8 +68,22 @@ const HomeStack = () => {
           }}
         />
         <Stack.Screen
+          name='TasckMatematica'
+          component={TasckMatematica}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
           name='ClassEnglish'
           component={ClassEnglish}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name='TasckEnglish'
+          component={TasckEnglish}
           options={{
             headerShown: false,
           }}
@@ -76,8 +96,22 @@ const HomeStack = () => {
           }}
         />
         <Stack.Screen
+          name='TasckCiencia'
+          component={TasckCiencia}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
           name='ClassHistoria'
           component={ClassHistoria}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name='TasckHistoria'
+          component={TasckHistoria}
           options={{
             headerShown: false,
           }}
@@ -89,7 +123,13 @@ const HomeStack = () => {
             headerShown: false,
           }}
         />
-
+        <Stack.Screen
+          name='GaleriaArte'
+          component={GaleriaArte}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen
           name='Tab'
           component={MainTabs}

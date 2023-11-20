@@ -5,7 +5,7 @@ interface Props {
   navigation: any;
 }
 
-const ClassLiteratura = ({ navigation }: Props):JSX.Element => {
+const ClassLiteratura = ({ navigation }: Props): JSX.Element => {
 
   const handleTasckPress = () => {
     navigation.navigate('TasckLiteratura');
@@ -53,10 +53,10 @@ const ClassLiteratura = ({ navigation }: Props):JSX.Element => {
       <View style={styles.poemContainer}>
         <Text style={styles.sectionTitle}>Ejemplo de Poesía</Text>
         <Text style={styles.poemText}>
-          "No te rindas, aún estás a tiempo
-          de alcanzar y comenzar de nuevo,
-          aceptar tus sombras, enterrar tus miedos,
-          liberar el lastre, retomar el vuelo."
+          {"No te rindas, aún estás a tiempo\n" +
+            "de alcanzar y comenzar de nuevo,\n" +
+            "aceptar tus sombras, enterrar tus miedos,\n" +
+            "liberar el lastre, retomar el vuelo."}
           - Mario Benedetti
         </Text>
       </View>
@@ -73,6 +73,8 @@ const ClassLiteratura = ({ navigation }: Props):JSX.Element => {
     </ScrollView>
   );
 };
+
+export default ClassLiteratura;
 
 const styles = StyleSheet.create({
   container: {
@@ -127,7 +129,6 @@ const styles = StyleSheet.create({
   poemText: {
     fontSize: 18,
     color: '#333',
-    whiteSpace: 'pre-line',
   },
   assignmentContainer: {
     backgroundColor: '#4CAF50',
@@ -140,5 +141,3 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
 });
-
-export default ClassLiteratura;

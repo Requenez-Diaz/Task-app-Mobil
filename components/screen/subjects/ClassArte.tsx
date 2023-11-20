@@ -2,7 +2,16 @@ import React from 'react';
 import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Linking } from 'react-native';
 import { FontAwesome } from "@expo/vector-icons";
 
-const ClassArte = () => {
+interface Props {
+  navigation: any;
+}
+
+const ClassArte = ({ navigation }:Props):JSX.Element => {
+
+  const handleGaleriaArte = () => {
+    navigation.navigate('GaleriaArte')
+  }
+
   return (
     <ScrollView>
 
@@ -41,7 +50,7 @@ const ClassArte = () => {
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.card} onPress={() => { }}>
+        <TouchableOpacity style={styles.card} onPress={handleGaleriaArte}>
           <FontAwesome name="tasks" size={40} color="white" />
           <Text style={styles.cardTitle}>Tarea Creativa</Text>
           <Text style={styles.cardText}>
@@ -52,6 +61,8 @@ const ClassArte = () => {
     </ScrollView>
   );
 };
+
+export default ClassArte;
 
 const styles = StyleSheet.create({
   container: {
@@ -88,5 +99,3 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-
-export default ClassArte;

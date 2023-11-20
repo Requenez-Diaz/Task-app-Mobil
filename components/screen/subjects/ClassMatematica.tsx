@@ -1,7 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Linking } from 'react-native';
 
-const ClassMatematica = () => {
+interface Props {
+  navigation: any;
+}
+
+const ClassMatematica = ({ navigation }:Props):JSX.Element => {
+
+  const handleTasMatckPress = () => {
+    navigation.navigate('TasckMatematica')
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.welcomeText}>¡Bienvenido a la clase de Matemáticas!</Text>
@@ -48,7 +57,7 @@ const ClassMatematica = () => {
         </Text>
       </View>
 
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity onPress={handleTasMatckPress}>
         <View style={styles.assignmentContainer}>
           <Text style={styles.sectionTitle}>Tarea: Problemas de Desafío</Text>
           <Text style={styles.assignmentText}>
@@ -60,6 +69,8 @@ const ClassMatematica = () => {
     </ScrollView>
   );
 };
+
+export default ClassMatematica;
 
 const styles = StyleSheet.create({
   container: {
@@ -127,5 +138,3 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
 });
-
-export default ClassMatematica;

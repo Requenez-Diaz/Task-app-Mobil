@@ -1,7 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Linking } from 'react-native';
 
-const ClassEnglish = () => {
+interface Props {
+  navigation: any;
+}
+
+const ClassEnglish = ({ navigation }:Props):JSX.Element => {
+
+  const handleTaskEnglish = () => {
+    navigation.navigate('TasckEnglish')
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.welcomeText}>¡Bienvenido a la clase de Inglés!</Text>
@@ -48,7 +57,7 @@ const ClassEnglish = () => {
         </Text>
       </View>
 
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity onPress={handleTaskEnglish}>
         <View style={styles.assignmentContainer}>
           <Text style={styles.sectionTitle}>Tarea: Escritura Creativa</Text>
           <Text style={styles.assignmentText}>
@@ -60,6 +69,8 @@ const ClassEnglish = () => {
     </ScrollView>
   );
 };
+
+export default ClassEnglish;
 
 const styles = StyleSheet.create({
   container: {
@@ -127,5 +138,3 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
 });
-
-export default ClassEnglish;

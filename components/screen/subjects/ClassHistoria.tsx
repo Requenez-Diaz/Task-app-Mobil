@@ -1,7 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Linking } from 'react-native';
 
-const ClassHistoria = () => {
+interface Props {
+  navigation: any;
+}
+
+const ClassHistoria = ({ navigation }:Props):JSX.Element => {
+
+  const handleTasckHistory = () => {
+    navigation.navigate('TasckHistoria');
+  }
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.welcomeText}>¡Bienvenido a la clase de Historia!</Text>
@@ -41,7 +50,7 @@ const ClassHistoria = () => {
         </Text>
       </View>
 
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity onPress={handleTasckHistory}>
         <View style={styles.questionContainer}>
           <Text style={styles.sectionTitle}>Pregunta Reflexiva</Text>
           <Text style={styles.questionText}>
@@ -62,6 +71,8 @@ const ClassHistoria = () => {
     </ScrollView>
   );
 };
+
+export default ClassHistoria;
 
 const styles = StyleSheet.create({
   container: {
@@ -129,5 +140,3 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
 });
-
-export default ClassHistoria;

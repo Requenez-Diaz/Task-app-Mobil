@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const TasckLiteratura = () => {
+const TasckEnglish = () => {
     const [task, setTask] = useState<string>('');
     const [savedTasks, setSavedTasks] = useState<string[]>([]);
     const [editingTaskIndex, setEditingTaskIndex] = useState<number | null>(null);
@@ -14,7 +14,7 @@ const TasckLiteratura = () => {
 
     const retrieveSavedTasks = async () => {
         try {
-            const savedTasksString = await AsyncStorage.getItem('savedTasks');
+            const savedTasksString = await AsyncStorage.getItem('savedTasksIngles');
             if (savedTasksString) {
                 setSavedTasks(JSON.parse(savedTasksString));
             }
@@ -38,7 +38,7 @@ const TasckLiteratura = () => {
                     setSavedTasks(updatedTasks);
                 }
 
-                await AsyncStorage.setItem('savedTasks', JSON.stringify(savedTasks));
+                await AsyncStorage.setItem('savedTasksIngles', JSON.stringify(savedTasks));
                 setTask('');
             } catch (error) {
                 console.error('Error al guardar la tarea:', error);
@@ -56,7 +56,7 @@ const TasckLiteratura = () => {
         try {
             const updatedTasks = savedTasks.filter((_, i) => i !== index);
             setSavedTasks(updatedTasks);
-            await AsyncStorage.setItem('savedTasks', JSON.stringify(updatedTasks));
+            await AsyncStorage.setItem('savedTasksIngles', JSON.stringify(updatedTasks));
             setEditingTaskIndex(null);
             setTask('');
         } catch (error) {
@@ -66,17 +66,17 @@ const TasckLiteratura = () => {
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <Text style={styles.welcomeText}>¡Bienvenido a la tarea creativa!</Text>
+            <Text style={styles.welcomeText}>¡Bienvenido a la tarea creativa de Inglés!</Text>
 
             <View style={styles.taskContainer}>
-                <Text style={styles.sectionTitle}>Tarea Creativa</Text>
+                <Text style={styles.sectionTitle}>Tarea Creativa de Inglés</Text>
                 <Text style={styles.taskDescription}>
-                    ¡Inspírate! Escribe tu propio poema o relato corto y compártelo en el foro para sumergirte en el mundo de la creatividad literaria.
+                    ¡Inspírate! Escribe un breve párrafo en inglés sobre un tema que te apasione y compártelo en el foro para explorar el mundo del idioma inglés.
                 </Text>
             </View>
 
             <View style={styles.inputContainer}>
-                <Text style={styles.inputLabel}>Tu Poema o Relato Corto:</Text>
+                <Text style={styles.inputLabel}>Tu Párrafo en Inglés:</Text>
                 <TextInput
                     multiline
                     style={styles.input}
@@ -103,9 +103,9 @@ const TasckLiteratura = () => {
             ))}
         </ScrollView>
     );
-};
+  };
 
-export default TasckLiteratura;
+  export default TasckEnglish;
 
 const styles = StyleSheet.create({
     container: {

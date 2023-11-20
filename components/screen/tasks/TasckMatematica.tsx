@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const TasckLiteratura = () => {
+const TasckMatematica = () => {
     const [task, setTask] = useState<string>('');
     const [savedTasks, setSavedTasks] = useState<string[]>([]);
     const [editingTaskIndex, setEditingTaskIndex] = useState<number | null>(null);
@@ -71,12 +71,12 @@ const TasckLiteratura = () => {
             <View style={styles.taskContainer}>
                 <Text style={styles.sectionTitle}>Tarea Creativa</Text>
                 <Text style={styles.taskDescription}>
-                    ¡Inspírate! Escribe tu propio poema o relato corto y compártelo en el foro para sumergirte en el mundo de la creatividad literaria.
+                    ¡Inspírate! Resuelve un problema matemático desafiante y comparte tu solución en el foro para explorar el fascinante mundo de las matemáticas.
                 </Text>
             </View>
 
             <View style={styles.inputContainer}>
-                <Text style={styles.inputLabel}>Tu Poema o Relato Corto:</Text>
+                <Text style={styles.inputLabel}>Tu Solución Matemática:</Text>
                 <TextInput
                     multiline
                     style={styles.input}
@@ -105,7 +105,7 @@ const TasckLiteratura = () => {
     );
 };
 
-export default TasckLiteratura;
+export default TasckMatematica;
 
 const styles = StyleSheet.create({
     container: {
