@@ -1,58 +1,71 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Linking } from 'react-native';
 
-const ClassMatematica = () => {
+interface Props {
+  navigation: any;
+}
+
+const ClassLiteratura = ({ navigation }: Props):JSX.Element => {
+
+  const handleTasckPress = () => {
+    navigation.navigate('TasckLiteratura');
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.welcomeText}>¡Bienvenido a la clase de Matemáticas!</Text>
+      <Text style={styles.welcomeText}>¡Bienvenido a la clase de Literatura!</Text>
 
       <View style={styles.sectionContainer}>
-        <Text style={styles.sectionTitle}>Lección 1: Números y Operaciones</Text>
+        <Text style={styles.sectionTitle}>Lección 1: Géneros Literarios</Text>
         <Text style={styles.lessonText}>
-          Descubre los fascinantes conceptos de números naturales, enteros, fracciones y operaciones básicas.
+          Exploraremos los fascinantes géneros literarios, desde la emotiva poesía hasta las cautivadoras historias en prosa.
         </Text>
       </View>
 
       <View style={styles.sectionContainer}>
-        <Text style={styles.sectionTitle}>Ejercicio Práctico: Suma y Resta</Text>
+        <Text style={styles.sectionTitle}>Actividad Interactiva</Text>
         <Text style={styles.activityText}>
-          Mejora tus habilidades con ejercicios prácticos de suma y resta de números.
+          ¡Prepárate para emocionarte! Participa en nuestra actividad adivinando el autor de obras literarias clásicas y modernas.
         </Text>
       </View>
 
       <View style={styles.sectionContainer}>
-        <Text style={styles.sectionTitle}>Recursos en Línea</Text>
+        <Text style={styles.sectionTitle}>Recursos Adicionales</Text>
         <Text style={styles.resourceText}>
-          Amplía tu conocimiento con recursos en línea como
+          Sumérgete en el mundo literario con recursos recomendados como el
           {' '}
           <Text
             style={styles.linkText}
-            onPress={() => Linking.openURL('https://www.khanacademy.org/')}>
-            Khan Academy
+            onPress={() => Linking.openURL('https://www.gutenberg.org/')}>
+            Proyecto Gutenberg
           </Text>
           {' '}
           y
           {' '}
           <Text
             style={styles.linkText}
-            onPress={() => Linking.openURL('https://www.mathway.com/')}>
-            Mathway
+            onPress={() => Linking.openURL('https://www.poemhunter.com/')}>
+            Poem Hunter
           </Text>.
         </Text>
       </View>
 
-      <View style={styles.problemContainer}>
-        <Text style={styles.sectionTitle}>Problema del Día</Text>
-        <Text style={styles.problemText}>
-          Resuelve el siguiente problema matemático: ¿Cuál es el área de un triángulo con base 8 y altura 12?
+      <View style={styles.poemContainer}>
+        <Text style={styles.sectionTitle}>Ejemplo de Poesía</Text>
+        <Text style={styles.poemText}>
+          "No te rindas, aún estás a tiempo
+          de alcanzar y comenzar de nuevo,
+          aceptar tus sombras, enterrar tus miedos,
+          liberar el lastre, retomar el vuelo."
+          - Mario Benedetti
         </Text>
       </View>
 
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity onPress={handleTasckPress}>
         <View style={styles.assignmentContainer}>
-          <Text style={styles.sectionTitle}>Tarea: Problemas de Desafío</Text>
+          <Text style={styles.sectionTitle}>Tarea Creativa</Text>
           <Text style={styles.assignmentText}>
-            Aborda los problemas de desafío proporcionados y comparte tus soluciones en el foro de la clase.
+            ¡Inspírate! Escribe tu propio poema o relato corto y compártelo en el foro para sumergirte en el mundo de la creatividad literaria.
           </Text>
         </View>
       </TouchableOpacity>
@@ -64,7 +77,7 @@ const ClassMatematica = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    backgroundColor: '#F0F0F0',
+    backgroundColor: '#F8F8F8',
   },
   welcomeText: {
     fontSize: 28,
@@ -105,16 +118,16 @@ const styles = StyleSheet.create({
     color: '#4285F4',
     textDecorationLine: 'underline',
   },
-  problemContainer: {
+  poemContainer: {
     marginBottom: 20,
     backgroundColor: '#FFD700',
     borderRadius: 10,
     padding: 16,
   },
-  problemText: {
+  poemText: {
     fontSize: 18,
     color: '#333',
-    marginBottom: 16,
+    whiteSpace: 'pre-line',
   },
   assignmentContainer: {
     backgroundColor: '#4CAF50',
@@ -128,4 +141,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ClassMatematica;
+export default ClassLiteratura;
