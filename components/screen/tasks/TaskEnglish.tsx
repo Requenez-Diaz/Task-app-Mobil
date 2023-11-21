@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const TasckEnglish = () => {
+const TaskEnglish = () => {
     const [task, setTask] = useState<string>('');
     const [savedTasks, setSavedTasks] = useState<string[]>([]);
     const [editingTaskIndex, setEditingTaskIndex] = useState<number | null>(null);
@@ -105,7 +105,7 @@ const TasckEnglish = () => {
     );
   };
 
-  export default TasckEnglish;
+  export default TaskEnglish;
 
 const styles = StyleSheet.create({
     container: {

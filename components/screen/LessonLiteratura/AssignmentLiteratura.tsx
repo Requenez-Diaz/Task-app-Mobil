@@ -1,4 +1,3 @@
-// AssignmentSection.tsx
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
@@ -8,7 +7,7 @@ interface AssignmentSectionProps {
     onPress: () => void;
 }
 
-const AssignmentSection: React.FC<AssignmentSectionProps> = ({ title, content, onPress }) => {
+const AssignmentLiteratura: React.FC<AssignmentSectionProps> = ({ title, content, onPress }) => {
     return (
         <TouchableOpacity onPress={onPress}>
             <View style={styles.assignmentContainer}>
@@ -38,4 +37,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default AssignmentSection;
+export default AssignmentLiteratura;

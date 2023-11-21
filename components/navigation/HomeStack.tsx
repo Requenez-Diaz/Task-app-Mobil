@@ -1,9 +1,11 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+
 import LogIn from "../Login/LogIn";
 import Home from "../screen/Home";
 import MainTabs from "./MainTabs";
+
 import ClassLiteratura from "../screen/subjects/ClassLiteratura";
 import ClassMatematica from "../screen/subjects/ClassMatematica";
 import ClassCiencia from "../screen/subjects/ClassCiencia";
@@ -12,11 +14,11 @@ import ClassHistoria from "../screen/subjects/ClassHistoria";
 import ClassArte from "../screen/subjects/ClassArte";
 import Subject from "../screen/Subject";
 
-import TasckLiteratura from "../screen/tasks/TasckLiteratura";
-import TasckMatematica from "../screen/tasks/TasckMatematica";
-import TasckEnglish from "../screen/tasks/TasckEnglish";
-import TasckHistoria from "../screen/tasks/TasckHistoria";
-import TasckCiencia from "../screen/tasks/TasckCiencia";
+import TaskLiteratura from "../screen/tasks/TaskLiteratura";
+import TaskMatematica from "../screen/tasks/TaskMatematica";
+import TaskEnglish from "../screen/tasks/TaskEnglish";
+import TaskCiencia from "../screen/tasks/TaskCiencia";
+import TaskHistoria from "../screen/tasks/TaskHistoria";
 import GaleriaArte from "../screen/tasks/GaleriaArte";
 
 const Stack = createStackNavigator();
@@ -54,8 +56,8 @@ const HomeStack = () => {
           }}
         />
         <Stack.Screen
-          name='TasckLiteratura'
-          component={TasckLiteratura}
+          name='TaskLiteratura'
+          component={TaskLiteratura}
           options={{
             headerShown: false,
           }}
@@ -68,8 +70,8 @@ const HomeStack = () => {
           }}
         />
         <Stack.Screen
-          name='TasckMatematica'
-          component={TasckMatematica}
+          name='TaskMatematica'
+          component={TaskMatematica}
           options={{
             headerShown: false,
           }}
@@ -82,8 +84,8 @@ const HomeStack = () => {
           }}
         />
         <Stack.Screen
-          name='TasckEnglish'
-          component={TasckEnglish}
+          name='TaskEnglish'
+          component={TaskEnglish}
           options={{
             headerShown: false,
           }}
@@ -96,8 +98,8 @@ const HomeStack = () => {
           }}
         />
         <Stack.Screen
-          name='TasckCiencia'
-          component={TasckCiencia}
+          name='TaskCiencia'
+          component={TaskCiencia}
           options={{
             headerShown: false,
           }}
@@ -110,8 +112,8 @@ const HomeStack = () => {
           }}
         />
         <Stack.Screen
-          name='TasckHistoria'
-          component={TasckHistoria}
+          name='TaskHistoria'
+          component={TaskHistoria}
           options={{
             headerShown: false,
           }}

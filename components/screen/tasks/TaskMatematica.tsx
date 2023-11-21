@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const TasckMatematica = () => {
+const TaskMatematica = () => {
     const [task, setTask] = useState<string>('');
     const [savedTasks, setSavedTasks] = useState<string[]>([]);
     const [editingTaskIndex, setEditingTaskIndex] = useState<number | null>(null);
@@ -105,7 +105,7 @@ const TasckMatematica = () => {
     );
 };
 
-export default TasckMatematica;
+export default TaskMatematica;
 
 const styles = StyleSheet.create({
     container: {

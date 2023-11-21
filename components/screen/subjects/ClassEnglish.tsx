@@ -1,11 +1,10 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import LessonSectionEnglish from '../LessonSectionEnglish/LessonSectionEnglish';
-import ActivitySectionEnglish from '../LessonSectionEnglish/ActivitySectionEnglish';
-import ResourceSectionEnglish from '../LessonSectionEnglish/ResourceSectionEnglish';
-import SongSectionEnglish from '../LessonSectionEnglish/SongSectionEnglish';
-import AssignmentSectionEnglish from '../LessonSectionMatematic/SongSectionMatematic';
-
+import { ScrollView, StyleSheet, Text, } from 'react-native';
+import LessonEnglish from '../LessonEnglish/LessonEnglish';
+import ActivityEnglish from '../LessonEnglish/ActivityEnglish';
+import ResourceEnglish from '../LessonEnglish/ResourceEnglish';
+import SongEnglish from '../LessonEnglish/SongEnglish';
+import AssignmentLiteratura from '../LessonLiteratura/AssignmentLiteratura';
 
 interface Props {
   navigation: any;
@@ -13,18 +12,18 @@ interface Props {
 
 const ClassEnglish: React.FC<Props> = ({ navigation }) => {
   const handleTaskEnglish = () => {
-    navigation.navigate('TasckEnglish');
+    navigation.navigate('TaskEnglish');
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.welcomeText}>¡Bienvenido a la clase de Inglés!</Text>
 
-      <LessonSectionEnglish />
-      <ActivitySectionEnglish />
-      <ResourceSectionEnglish />
-      <SongSectionEnglish />
-      <AssignmentSectionEnglish
+      <LessonEnglish />
+      <ActivityEnglish />
+      <ResourceEnglish />
+      <SongEnglish />
+      <AssignmentLiteratura
         title="Tarea: Escritura Creativa"
         content="Escribe un breve párrafo sobre tu tema favorito y compártelo con tus compañeros en el foro de la clase."
         onPress={handleTaskEnglish}

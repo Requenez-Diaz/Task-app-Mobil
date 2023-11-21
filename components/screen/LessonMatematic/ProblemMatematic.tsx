@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const ProblemSection = () => {
+const ProblemMatematic = () => {
     return (
         <View style={styles.problemContainer}>
             <Text style={styles.sectionTitle}>Problema del Día</Text>
@@ -32,4 +32,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ProblemSection;
+export default ProblemMatematic;

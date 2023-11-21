@@ -1,20 +1,26 @@
 import React from 'react';
 import { View, Text, StyleSheet, Linking } from 'react-native';
 
-const ResourceSection = () => {
+const ResourceCiencia: React.FC = () => {
     return (
         <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Recursos en Línea</Text>
+            <Text style={styles.sectionTitle}>Recursos Multimedia</Text>
             <Text style={styles.resourceText}>
-                Amplía tu conocimiento con recursos en línea como{' '}
-                <Text style={styles.linkText} onPress={() => Linking.openURL('https://www.khanacademy.org/')}>
-                    Khan Academy
-                </Text>{' '}
-                y{' '}
-                <Text style={styles.linkText} onPress={() => Linking.openURL('https://www.mathway.com/')}>
-                    Mathway
+                Amplía tus conocimientos con recursos multimedia, como documentales y videos educativos:
+                {' '}
+                <Text
+                    style={styles.linkText}
+                    onPress={() => Linking.openURL('https://www.nationalgeographic.com/')}>
+                    National Geographic
                 </Text>
-                .
+                {' '}
+                y
+                {' '}
+                <Text
+                    style={styles.linkText}
+                    onPress={() => Linking.openURL('https://www.khanacademy.org/science')}>
+                    Khan Academy - Ciencia
+                </Text>
             </Text>
         </View>
     );
@@ -45,4 +51,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ResourceSection;
+export default ResourceCiencia;

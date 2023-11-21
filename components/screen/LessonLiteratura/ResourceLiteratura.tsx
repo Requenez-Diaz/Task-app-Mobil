@@ -1,17 +1,20 @@
-// LessonSection.tsx
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Linking } from 'react-native';
 
-interface LessonSectionProps {
+interface ResourceSectionProps {
     title: string;
-    content: string;
+    resources: { text: string; url: string }[];
 }
 
-const LessonSection: React.FC<LessonSectionProps> = ({ title, content }) => {
+const ResourceLiteratura: React.FC<ResourceSectionProps> = ({ title, resources }) => {
     return (
         <View style={styles.sectionContainer}>
             <Text style={styles.sectionTitle}>{title}</Text>
-            <Text style={styles.lessonText}>{content}</Text>
+            {resources.map((resource, index) => (
+                <Text key={index} style={styles.resourceText} onPress={() => Linking.openURL(resource.url)}>
+                    {resource.text}
+                </Text>
+            ))}
         </View>
     );
 };
@@ -30,11 +33,12 @@ const styles = StyleSheet.create({
         marginBottom: 12,
         color: '#333',
     },
-    lessonText: {
+    resourceText: {
         fontSize: 18,
         marginBottom: 16,
         color: '#555',
+        textDecorationLine: 'underline',
     },
 });
 
-export default LessonSection;
+export default ResourceLiteratura;

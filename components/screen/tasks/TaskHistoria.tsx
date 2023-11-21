@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const TasckLiteratura = () => {
+const TaskHistoria = () => {
     const [task, setTask] = useState<string>('');
     const [savedTasks, setSavedTasks] = useState<string[]>([]);
     const [editingTaskIndex, setEditingTaskIndex] = useState<number | null>(null);
@@ -14,7 +14,7 @@ const TasckLiteratura = () => {
 
     const retrieveSavedTasks = async () => {
         try {
-            const savedTasksString = await AsyncStorage.getItem('savedTasks');
+            const savedTasksString = await AsyncStorage.getItem('savedTasksHistoria');
             if (savedTasksString) {
                 setSavedTasks(JSON.parse(savedTasksString));
             }
@@ -38,7 +38,7 @@ const TasckLiteratura = () => {
                     setSavedTasks(updatedTasks);
                 }
 
-                await AsyncStorage.setItem('savedTasks', JSON.stringify(savedTasks));
+                await AsyncStorage.setItem('savedTasksHistoria', JSON.stringify(savedTasks));
                 setTask('');
             } catch (error) {
                 console.error('Error al guardar la tarea:', error);
@@ -56,7 +56,7 @@ const TasckLiteratura = () => {
         try {
             const updatedTasks = savedTasks.filter((_, i) => i !== index);
             setSavedTasks(updatedTasks);
-            await AsyncStorage.setItem('savedTasks', JSON.stringify(updatedTasks));
+            await AsyncStorage.setItem('savedTasksHistoria', JSON.stringify(updatedTasks));
             setEditingTaskIndex(null);
             setTask('');
         } catch (error) {
@@ -66,17 +66,17 @@ const TasckLiteratura = () => {
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <Text style={styles.welcomeText}>¡Bienvenido a la tarea creativa!</Text>
+            <Text style={styles.welcomeText}>¡Bienvenido a la tarea creativa de Historia!</Text>
 
             <View style={styles.taskContainer}>
-                <Text style={styles.sectionTitle}>Tarea Creativa</Text>
+                <Text style={styles.sectionTitle}>Tarea Creativa de Historia</Text>
                 <Text style={styles.taskDescription}>
-                    ¡Inspírate! Escribe tu propio poema o relato corto y compártelo en el foro para sumergirte en el mundo de la creatividad literaria.
+                    ¡Inspírate! Escribe sobre un evento histórico fascinante y comparte tus reflexiones en el foro para explorar el apasionante mundo de la historia.
                 </Text>
             </View>
 
             <View style={styles.inputContainer}>
-                <Text style={styles.inputLabel}>Tu Poema o Relato Corto:</Text>
+                <Text style={styles.inputLabel}>Tu Reflexión Histórica:</Text>
                 <TextInput
                     multiline
                     style={styles.input}
@@ -105,12 +105,10 @@ const TasckLiteratura = () => {
     );
 };
 
-export default TasckLiteratura;
-
 const styles = StyleSheet.create({
     container: {
         padding: 16,
-        backgroundColor: '#F8F8F8',
+        backgroundColor: '#F9F9F9',
     },
     welcomeText: {
         fontSize: 28,
@@ -191,3 +189,5 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
     },
 });
+
+export default TaskHistoria;

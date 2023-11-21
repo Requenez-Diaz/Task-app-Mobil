@@ -5,7 +5,7 @@ interface QuestionSectionProps {
     onPress: () => void;
 }
 
-const QuestionSectionCiencia: React.FC<QuestionSectionProps> = ({ onPress }) => {
+const QuestionCiencia: React.FC<QuestionSectionProps> = ({ onPress }) => {
     return (
         <TouchableOpacity onPress={onPress}>
             <View style={styles.questionContainer}>
@@ -38,4 +38,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default QuestionSectionCiencia;
+export default QuestionCiencia;

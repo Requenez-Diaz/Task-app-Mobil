@@ -1,18 +1,18 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-interface AssignmentSectionProps {
-    title: string;
-    content: string;
-    onPress?: () => void;
+interface Props {
+    onPress: () => void;
 }
 
-const AssignmentSectionEnglish: React.FC<AssignmentSectionProps> = ({ title, content, onPress }) => {
+const AssignmentMatematic = ({ onPress }: Props) => {
     return (
         <TouchableOpacity onPress={onPress}>
             <View style={styles.assignmentContainer}>
-                <Text style={styles.sectionTitle}>{title}</Text>
-                <Text style={styles.assignmentText}>{content}</Text>
+                <Text style={styles.sectionTitle}>Tarea: Problemas de Desafío</Text>
+                <Text style={styles.assignmentText}>
+                    Aborda los problemas de desafío proporcionados y comparte tus soluciones en el foro de la clase.
+                </Text>
             </View>
         </TouchableOpacity>
     );
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default AssignmentSectionEnglish;
+export default AssignmentMatematic;

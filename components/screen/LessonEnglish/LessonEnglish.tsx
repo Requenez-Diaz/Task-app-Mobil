@@ -1,12 +1,11 @@
-// LessonSectionEnglish.tsx
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 interface LessonSectionEnglishProps {
-    // Propiedades específicas para LessonSectionEnglish
+    // Propiedades específicas para LessonEnglish
 }
 
-const LessonSectionEnglish: React.FC<LessonSectionEnglishProps> = () => {
+const LessonEnglish: React.FC<LessonSectionEnglishProps> = () => {
     return (
         <View style={styles.sectionContainer}>
             <Text style={styles.sectionTitle}>Lección 1: Gramática Básica</Text>
@@ -38,4 +37,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LessonSectionEnglish;
+export default LessonEnglish;

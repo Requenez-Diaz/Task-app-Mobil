@@ -1,11 +1,10 @@
 // Importa los subcomponentes
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import LessonSection from '../LessonSectionLiteratura/LessonSection';
-import ResourceSection from '../LessonSectionLiteratura/ResourceSection';
-import PoemSection from '../LessonSectionLiteratura/PoemSection';
-import AssignmentSection from '../LessonSectionLiteratura/AssignmentSection';
-
+import LessonLiteratura from '../LessonLiteratura/LessonLiteratura';
+import ResourceLiteratura from '../LessonLiteratura/ResourceLiteratura';
+import PoemLiteratura from '../LessonLiteratura/PoemLiteratura';
+import AssignmentLiteratura from '../LessonLiteratura/AssignmentLiteratura';
 
 interface Props {
   navigation: any;
@@ -13,22 +12,22 @@ interface Props {
 
 const ClassLiteratura = ({ navigation }: Props): JSX.Element => {
   const handleTasckPress = () => {
-    navigation.navigate('TasckLiteratura');
+    navigation.navigate('TaskLiteratura');
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <LessonSection
+      <LessonLiteratura
         title="Lección 1: Géneros Literarios"
         content="Exploraremos los fascinantes géneros literarios, desde la emotiva poesía hasta las cautivadoras historias en prosa."
       />
 
-      <LessonSection
+      <LessonLiteratura
         title="Actividad Interactiva"
         content="¡Prepárate para emocionarte! Participa en nuestra actividad adivinando el autor de obras literarias clásicas y modernas."
       />
 
-      <ResourceSection
+      <ResourceLiteratura
         title="Recursos Adicionales"
         resources={[
           { text: 'Proyecto Gutenberg', url: 'https://www.gutenberg.org/' },
@@ -36,12 +35,12 @@ const ClassLiteratura = ({ navigation }: Props): JSX.Element => {
         ]}
       />
 
-      <PoemSection
+      <PoemLiteratura
         title="Ejemplo de Poesía"
         content="No te rindas, aún estás a tiempo\nde alcanzar y comenzar de nuevo,\naceptar tus sombras, enterrar tus miedos,\nliberar el lastre, retomar el vuelo.\n- Mario Benedetti"
       />
 
-      <AssignmentSection
+      <AssignmentLiteratura
         title="Tarea Creativa"
         content="¡Inspírate! Escribe tu propio poema o relato corto y compártelo en el foro para sumergirte en el mundo de la creatividad literaria."
         onPress={handleTasckPress}

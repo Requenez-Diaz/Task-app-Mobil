@@ -1,12 +1,11 @@
-// ActivitySectionEnglish.tsx
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 interface ActivitySectionEnglishProps {
-    // Propiedades específicas para ActivitySectionEnglish
+    // Propiedades específicas para ActivityEnglish
 }
 
-const ActivitySectionEnglish: React.FC<ActivitySectionEnglishProps> = () => {
+const ActivityEnglish: React.FC<ActivitySectionEnglishProps> = () => {
     return (
         <View style={styles.sectionContainer}>
             <Text style={styles.sectionTitle}>Actividad de Vocabulario</Text>
@@ -38,4 +37,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ActivitySectionEnglish;
+export default ActivityEnglish;

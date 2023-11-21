@@ -1,4 +1,3 @@
-// PoemSection.tsx
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
@@ -7,7 +6,7 @@ interface PoemSectionProps {
     content: string;
 }
 
-const PoemSection: React.FC<PoemSectionProps> = ({ title, content }) => {
+const PoemLiteratura: React.FC<PoemSectionProps> = ({ title, content }) => {
     return (
         <View style={styles.poemContainer}>
             <Text style={styles.sectionTitle}>{title}</Text>
@@ -35,4 +34,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default PoemSection;
+export default PoemLiteratura;

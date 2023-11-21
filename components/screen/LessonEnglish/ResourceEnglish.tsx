@@ -1,12 +1,11 @@
-// ResourceSectionEnglish.tsx
 import React from 'react';
 import { View, Text, StyleSheet, Linking } from 'react-native';
 
 interface ResourceSectionEnglishProps {
-    // Propiedades específicas para ResourceSectionEnglish
+    // Propiedades específicas para ResourceEnglish
 }
 
-const ResourceSectionEnglish: React.FC<ResourceSectionEnglishProps> = () => {
+const ResourceEnglish: React.FC<ResourceSectionEnglishProps> = () => {
     return (
         <View style={styles.sectionContainer}>
             <Text style={styles.sectionTitle}>Recursos de Lectura</Text>
@@ -56,4 +55,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ResourceSectionEnglish;
+export default ResourceEnglish;

@@ -1,10 +1,10 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { ScrollView, StyleSheet, Text, } from 'react-native';
 import LessonCiencia from '../LeassonCiencia/LeassonCiencia';
-import ActivitySectionCiencia from '../LeassonCiencia/ActivityCiencia';
-import ResourceSectionCiencia from '../LeassonCiencia/Resource';
-import QuestionSectionCiencia from '../LeassonCiencia/QuestionCiencia';
-import ProjectSectionCiencia from '../LeassonCiencia/Project';
+import ActivityCiencia from '../LeassonCiencia/ActivityCiencia';
+import ResourceCiencia from '../LeassonCiencia/ResourceCiencia';
+import QuestionCiencia from '../LeassonCiencia/QuestionCiencia';
+import ProjectCiencia from '../LeassonCiencia/ProjectCiencia';
 
 interface Props {
   navigation: any;
@@ -12,7 +12,7 @@ interface Props {
 
 const ClassCiencia: React.FC<Props> = ({ navigation }) => {
   const handleTaskCience = () => {
-    navigation.navigate('TasckCiencia');
+    navigation.navigate('TaskCiencia');
   };
 
   return (
@@ -20,10 +20,10 @@ const ClassCiencia: React.FC<Props> = ({ navigation }) => {
       <Text style={styles.welcomeText}>¡Bienvenido a la clase de Ciencia!</Text>
 
       <LessonCiencia />
-      <ActivitySectionCiencia />
-      <ResourceSectionCiencia />
-      <QuestionSectionCiencia onPress={handleTaskCience} />
-      <ProjectSectionCiencia />
+      <ActivityCiencia />
+      <ResourceCiencia />
+      <QuestionCiencia onPress={handleTaskCience} />
+      <ProjectCiencia />
 
     </ScrollView>
   );

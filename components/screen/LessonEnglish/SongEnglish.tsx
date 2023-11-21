@@ -1,12 +1,11 @@
-// SongSectionEnglish.tsx
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 interface SongSectionEnglishProps {
-    // Propiedades específicas para SongSectionEnglish
+    // Propiedades específicas para SongEnglish
 }
 
-const SongSectionEnglish: React.FC<SongSectionEnglishProps> = () => {
+const SongEnglish: React.FC<SongSectionEnglishProps> = () => {
     return (
         <View style={styles.songContainer}>
             <Text style={styles.sectionTitle}>Canción del Día</Text>
@@ -37,4 +36,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default SongSectionEnglish;
+export default SongEnglish;

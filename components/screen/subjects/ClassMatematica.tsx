@@ -1,10 +1,10 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Linking } from 'react-native';
-import LessonSection from '../LessonSectionMatematic/LessonSectionMatematic';
-import ActivitySection from '../LessonSectionMatematic/ActivitySectionMatematic';
-import ResourceSection from '../LessonSectionMatematic/ResourceSectionMatematic';
-import AssignmentSection from '../LessonSectionMatematic/AssignmentSectionMatematic';
-import ProblemSection from '../LessonSectionMatematic/ProblemSectionMatematic';
+import LessonMatematic from '../LessonMatematic/LessonMatematic';
+import ActivityMatetic from '../LessonMatematic/ActivityMatematic';
+import ResourceMatematic from '../LessonMatematic/ResourceMatematic';
+import ProblemMatematic from '../LessonMatematic/ProblemMatematic';
+import AssignmentMatematic from '../LessonMatematic/AssignmentMatematic';
 
 interface Props {
   navigation: any;
@@ -13,18 +13,18 @@ interface Props {
 const ClassMatematica = ({ navigation }: Props): JSX.Element => {
 
   const handleTaskMatPress = () => {
-    navigation.navigate('TasckMatematica');
+    navigation.navigate('TaskMatematica');
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.welcomeText}>¡Bienvenido a la clase de Matemáticas!</Text>
 
-      <LessonSection />
-      <ActivitySection />
-      <ResourceSection />
-      <ProblemSection />
-      <AssignmentSection onPress={handleTaskMatPress} />
+      <LessonMatematic />
+      <ActivityMatetic />
+      <ResourceMatematic />
+      <ProblemMatematic />
+      <AssignmentMatematic onPress={handleTaskMatPress} />
 
     </ScrollView>
   );

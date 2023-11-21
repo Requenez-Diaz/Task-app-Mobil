@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const ActivitySectionCiencia: React.FC = () => {
+const ActivityCiencia: React.FC = () => {
     return (
         <View style={styles.sectionContainer}>
             <Text style={styles.sectionTitle}>Experimento Casero</Text>
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ActivitySectionCiencia;
+export default ActivityCiencia;

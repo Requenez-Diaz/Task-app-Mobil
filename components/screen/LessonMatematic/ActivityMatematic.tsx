@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const LessonSection = () => {
+const ActivityMatetic = () => {
     return (
         <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Lección 1: Números y Operaciones</Text>
-            <Text style={styles.lessonText}>
-                Descubre los fascinantes conceptos de números naturales, enteros, fracciones y operaciones básicas.
+            <Text style={styles.sectionTitle}>Ejercicio Práctico: Suma y Resta</Text>
+            <Text style={styles.activityText}>
+                Mejora tus habilidades con ejercicios prácticos de suma y resta de números.
             </Text>
         </View>
     );
@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
         marginBottom: 12,
         color: '#333',
     },
-    lessonText: {
+    activityText: {
         fontSize: 18,
         marginBottom: 16,
         color: '#555',
     },
 });
 
-export default LessonSection;
+export default ActivityMatetic;

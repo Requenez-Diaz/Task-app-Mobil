@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const ProjectSectionCiencia: React.FC = () => {
+const ProjectCiencia: React.FC = () => {
     return (
         <TouchableOpacity onPress={() => { }}>
             <View style={styles.projectContainer}>
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ProjectSectionCiencia;
+export default ProjectCiencia;

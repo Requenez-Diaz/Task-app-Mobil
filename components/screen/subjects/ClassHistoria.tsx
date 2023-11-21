@@ -12,7 +12,7 @@ interface Props {
 
 const ClassHistoria: React.FC<Props> = ({ navigation }) => {
   const handleTaskHistory = () => {
-    navigation.navigate('TasckHistoria');
+    navigation.navigate('TaskHistoria');
   };
 
   return (
