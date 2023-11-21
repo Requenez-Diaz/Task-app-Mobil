@@ -1,68 +1,61 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Linking } from 'react-native';
-import { FontAwesome } from "@expo/vector-icons";
+import { ScrollView, StyleSheet, View, Linking } from 'react-native';
+import HeaderArte from '../LessonArte/HeaderArte';
+import CardArte from '../LessonArte/CardArte';
 
 interface Props {
   navigation: any;
 }
 
-const ClassArte = ({ navigation }:Props):JSX.Element => {
-
+const ClassArte: React.FC<Props> = ({ navigation }) => {
   const handleGaleriaArte = () => {
-    navigation.navigate('GaleriaArte')
-  }
+    navigation.navigate('GaleriaArte');
+  };
+
+  const cards = [
+    {
+      title: 'Explorando la Creatividad',
+      text: 'Sumérgete en el mundo del arte y descubre diversas formas de expresión creativa.',
+      icon: 'paint-brush',
+      onPress: () => {},
+    },
+    {
+      title: 'Proyecto Artístico',
+      text: 'Trabaja en un proyecto artístico basado en la técnica o estilo de un famoso artista.',
+      icon: 'pencil',
+      onPress: () => {},
+    },
+    {
+      title: 'Recorrido Virtual a Museos',
+      text: 'Realiza un recorrido virtual a través de museos de arte famosos en todo el mundo.',
+      icon: 'globe',
+      onPress: () => Linking.openURL('https://artsandculture.google.com/partner?hl=en'),
+    },
+    {
+      title: 'Análisis de Obra de Arte',
+      text: 'Analiza una obra de arte específica y comparte tus observaciones en el foro de la clase.',
+      icon: 'picture-o',
+      onPress: () => {},
+    },
+    {
+      title: 'Tarea Creativa',
+      text: 'Crea una obra de arte original inspirada en tus propias experiencias y emociones.',
+      icon: 'tasks',
+      onPress: handleGaleriaArte,
+    },
+  ];
 
   return (
     <ScrollView>
-
       <View style={styles.container}>
-        <Text style={styles.headerText}>¡Bienvenido a la clase de Arte!</Text>
-
-        <TouchableOpacity style={styles.card} onPress={() => { }}>
-          <FontAwesome name="paint-brush" size={40} color="white" />
-          <Text style={styles.cardTitle}>Explorando la Creatividad</Text>
-          <Text style={styles.cardText}>
-            Sumérgete en el mundo del arte y descubre diversas formas de expresión creativa.
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.card} onPress={() => { }}>
-          <FontAwesome name="pencil" size={40} color="white" />
-          <Text style={styles.cardTitle}>Proyecto Artístico</Text>
-          <Text style={styles.cardText}>
-            Trabaja en un proyecto artístico basado en la técnica o estilo de un famoso artista.
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.card} onPress={() => Linking.openURL('https://artsandculture.google.com/partner?hl=en')}>
-          <FontAwesome name="globe" size={40} color="white" />
-          <Text style={styles.cardTitle}>Recorrido Virtual a Museos</Text>
-          <Text style={styles.cardText}>
-            Realiza un recorrido virtual a través de museos de arte famosos en todo el mundo.
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.card} onPress={() => { }}>
-          <FontAwesome name="picture-o" size={40} color="white" />
-          <Text style={styles.cardTitle}>Análisis de Obra de Arte</Text>
-          <Text style={styles.cardText}>
-            Analiza una obra de arte específica y comparte tus observaciones en el foro de la clase.
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.card} onPress={handleGaleriaArte}>
-          <FontAwesome name="tasks" size={40} color="white" />
-          <Text style={styles.cardTitle}>Tarea Creativa</Text>
-          <Text style={styles.cardText}>
-            Crea una obra de arte original inspirada en tus propias experiencias y emociones.
-          </Text>
-        </TouchableOpacity>
+        <HeaderArte />
+        {cards.map((card, index) => (
+          <CardArte key={index} {...card} />
+        ))}
       </View>
     </ScrollView>
   );
 };
-
-export default ClassArte;
 
 const styles = StyleSheet.create({
   container: {
@@ -70,32 +63,6 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#FDF6E3',
   },
-  headerText: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginBottom: 16,
-    textAlign: 'center',
-    color: '#333',
-  },
-  card: {
-    backgroundColor: '#3498db',
-    borderRadius: 10,
-    padding: 16,
-    marginBottom: 16,
-    flexDirection: 'column',
-    alignItems: 'center',
-    elevation: 5,
-  },
-  cardTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginTop: 10,
-    marginBottom: 8,
-    color: 'white',
-  },
-  cardText: {
-    fontSize: 16,
-    color: 'white',
-    textAlign: 'center',
-  },
 });
+
+export default ClassArte;
