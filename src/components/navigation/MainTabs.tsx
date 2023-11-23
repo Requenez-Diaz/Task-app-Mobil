@@ -15,7 +15,7 @@ const MainTabs = () => {
       initialRouteName='Dashboard'
       screenOptions={{
         tabBarActiveTintColor: "#ffffff",
-        tabBarActiveBackgroundColor: "green",
+        tabBarActiveBackgroundColor: "#225480",
       }}
     >
       <Tab.Screen

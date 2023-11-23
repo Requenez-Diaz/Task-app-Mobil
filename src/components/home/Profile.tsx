@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    backgroundColor: "green",
+    backgroundColor: "#225480",
     alignItems: "center",
     padding: 20,
   },
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginLeft: 10,
+    color: "white",
   },
   image: {
     width: 60,

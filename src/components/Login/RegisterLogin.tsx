@@ -1,33 +1,29 @@
-import React from "react";
 import {
   StyleSheet,
   Text,
   TextInput,
-  TouchableOpacity,
   View,
+  TouchableOpacity,
 } from "react-native";
+import React from "react";
 import CustomButton from "./CustomButton";
 
-interface NavigationProps {
+interface RegisterProps {
   navigation: any;
 }
 
-const LogIn = ({ navigation }: NavigationProps) => {
-  const handleLogin = () => {
-    navigation.navigate("Tab");
-  };
-
+const RegisterLogin = ({ navigation }: RegisterProps) => {
   const handleRegister = () => {
-    navigation.navigate("Register");
+    navigation.navigate("Tab");
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Register</Text>
       <View style={styles.formContainer}>
         <TextInput
           style={styles.input}
-          placeholder='Email'
+          placeholder='User name'
           placeholderTextColor='#666'
         />
         <TextInput
@@ -37,24 +33,32 @@ const LogIn = ({ navigation }: NavigationProps) => {
           secureTextEntry={true}
         />
 
-        <TouchableOpacity style={styles.forgotPassword}>
-          <Text style={styles.forgotPasswordText}>Forgot your password</Text>
-        </TouchableOpacity>
+        <TextInput
+          style={styles.input}
+          placeholder='Email'
+          placeholderTextColor='#666'
+          secureTextEntry={true}
+        />
 
-        <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
+        <TextInput
+          style={styles.input}
+          placeholder='Number Phone'
+          placeholderTextColor='#666'
+          secureTextEntry={true}
+        />
 
         <CustomButton
           onPress={handleRegister}
           title='Register'
-          buttonStyle={{ backgroundColor: "green", marginTop: 5 }}
+          buttonStyle={{ backgroundColor: "blue" }}
           textStyle={{ color: "white" }}
         />
       </View>
     </View>
   );
 };
+
+export default RegisterLogin;
 
 const styles = StyleSheet.create({
   container: {
@@ -85,21 +89,10 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     alignItems: "center",
-    marginTop: 10,
   },
   buttonText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
   },
-  forgotPassword: {
-    alignItems: "center",
-    marginTop: 10,
-  },
-  forgotPasswordText: {
-    color: "#3498db",
-    textDecorationLine: "underline",
-  },
 });
-
-export default LogIn;
