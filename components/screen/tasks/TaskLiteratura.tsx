@@ -1,6 +1,9 @@
+// TaskLiteratura.tsx
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import TaskList from '../TaskList/TaskList';
+
 
 const TaskLiteratura = () => {
     const [task, setTask] = useState<string>('');
@@ -8,7 +11,6 @@ const TaskLiteratura = () => {
     const [editingTaskIndex, setEditingTaskIndex] = useState<number | null>(null);
 
     useEffect(() => {
-        // Cargar tareas guardadas al cargar la vista
         retrieveSavedTasks();
     }, []);
 
@@ -27,13 +29,11 @@ const TaskLiteratura = () => {
         if (task) {
             try {
                 if (editingTaskIndex !== null) {
-                    // Si estamos editando, actualizamos la tarea existente
                     const updatedTasks = [...savedTasks];
                     updatedTasks[editingTaskIndex] = task;
                     setSavedTasks(updatedTasks);
                     setEditingTaskIndex(null);
                 } else {
-                    // Si no estamos editando, agregamos una nueva tarea
                     const updatedTasks = [...savedTasks, task];
                     setSavedTasks(updatedTasks);
                 }
@@ -47,7 +47,6 @@ const TaskLiteratura = () => {
     };
 
     const handleEditTask = (index: number) => {
-        // Establecer la tarea para edición y mostrar en el campo de entrada
         setEditingTaskIndex(index);
         setTask(savedTasks[index]);
     };
@@ -90,22 +89,14 @@ const TaskLiteratura = () => {
                 <Text style={styles.buttonText}>{editingTaskIndex !== null ? 'Actualizar Tarea' : 'Guardar Tarea'}</Text>
             </TouchableOpacity>
 
-            {savedTasks.map((savedTask, index) => (
-                <View key={index} style={styles.savedTaskContainer}>
-                    <Text style={styles.savedTaskText}>{savedTask}</Text>
-                    <TouchableOpacity style={styles.editButton} onPress={() => handleEditTask(index)}>
-                        <Text style={styles.buttonText}>Editar</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.deleteButton} onPress={() => handleDeleteTask(index)}>
-                        <Text style={styles.buttonText}>Eliminar</Text>
-                    </TouchableOpacity>
-                </View>
-            ))}
+            <TaskList
+                savedTasks={savedTasks}
+                onEditTask={handleEditTask}
+                onDeleteTask={handleDeleteTask}
+            />
         </ScrollView>
     );
 };
-
-export default TaskLiteratura;
 
 const styles = StyleSheet.create({
     container: {
@@ -160,34 +151,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 10,
     },
-    savedTaskContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: '#FFFFFF',
-        borderRadius: 10,
-        padding: 16,
-        marginTop: 10,
-        elevation: 5,
-    },
-    savedTaskText: {
-        fontSize: 18,
-        color: '#333',
-        flex: 1,
-    },
-    editButton: {
-        backgroundColor: '#2ecc71',
-        borderRadius: 5,
-        padding: 8,
-        marginLeft: 8,
-    },
-    deleteButton: {
-        backgroundColor: '#e74c3c',
-        borderRadius: 5,
-        padding: 8,
-        marginLeft: 8,
-    },
     buttonText: {
         color: '#FFFFFF',
     },
 });
+
+export default TaskLiteratura;
