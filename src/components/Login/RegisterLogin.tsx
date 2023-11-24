@@ -1,24 +1,25 @@
-import React from "react";
 import {
   StyleSheet,
   Text,
   TextInput,
-  TouchableOpacity,
   View,
+  TouchableOpacity,
 } from "react-native";
+import React from "react";
+import CustomButton from "./CustomButton";
 
-interface NavigationProps {
+interface RegisterProps {
   navigation: any;
 }
 
-const LogIn = ({ navigation }: NavigationProps) => {
-  const handleLogin = () => {
+const RegisterLogin = ({ navigation }: RegisterProps) => {
+  const handleRegister = () => {
     navigation.navigate("Tab");
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Register</Text>
       <View style={styles.formContainer}>
         <TextInput
           style={styles.input}
@@ -31,13 +32,33 @@ const LogIn = ({ navigation }: NavigationProps) => {
           placeholderTextColor='#666'
           secureTextEntry={true}
         />
-        <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
+
+        <TextInput
+          style={styles.input}
+          placeholder='Email'
+          placeholderTextColor='#666'
+          secureTextEntry={true}
+        />
+
+        <TextInput
+          style={styles.input}
+          placeholder='Number Phone'
+          placeholderTextColor='#666'
+          secureTextEntry={true}
+        />
+
+        <CustomButton
+          onPress={handleRegister}
+          title='Register'
+          buttonStyle={{ backgroundColor: "blue" }}
+          textStyle={{ color: "white" }}
+        />
       </View>
     </View>
   );
 };
+
+export default RegisterLogin;
 
 const styles = StyleSheet.create({
   container: {
@@ -75,5 +96,3 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
-
-export default LogIn;

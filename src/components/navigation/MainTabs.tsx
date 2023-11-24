@@ -6,7 +6,7 @@ import { Octicons, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-ic
 import Menu from "../screen/Menu";
 import Subject from "../screen/Subject";
 import Home from "../screen/Home";
-import Account from "../account/Account";
+import Account from "../../../components/account/Account";
 
 const Tab = createBottomTabNavigator();
 
@@ -16,7 +16,7 @@ const MainTabs = () => {
       initialRouteName='Dashboard'
       screenOptions={{
         tabBarActiveTintColor: "#ffffff",
-        tabBarActiveBackgroundColor: "green",
+        tabBarActiveBackgroundColor: "#225480",
       }}
     >
       <Tab.Screen
