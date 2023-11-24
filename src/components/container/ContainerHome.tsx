@@ -1,19 +1,27 @@
 //import liraries
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import ProfileProps from "../home/ProfileProps";
 import CardContainer from "../home/cards/CardContainer";
 import Users from "../home/Users/Users";
+import AddUser from "../home/addUsers/AddUser";
 
 // create a component
 const MyComponent = () => {
   return (
-    <View>
+    <ScrollView style={styles.scrollViewContainer}>
       <ProfileProps />
       <CardContainer />
       <Users />
-    </View>
+      <AddUser />
+    </ScrollView>
   );
 };
 
 export default MyComponent;
+
+const styles = StyleSheet.create({
+  scrollViewContainer: {
+    flexGrow: 1,
+  },
+});
