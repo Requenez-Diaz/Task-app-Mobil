@@ -13,7 +13,6 @@ const Settings: React.FC<SettingsProps> = ({ darkMode, onToggleDarkMode }) => {
                 <Text style={darkMode ? styles.settingTextDark : styles.settingTextLight}>Modo Oscuro</Text>
                 <Switch value={darkMode} onValueChange={onToggleDarkMode} />
             </View>
-            {/* Agrega más configuraciones relevantes aquí */}
         </View>
     );
 };

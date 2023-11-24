@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AntDesign } from '@expo/vector-icons';
 
 const TaskEnglish = () => {
     const [task, setTask] = useState<string>('');
@@ -94,18 +95,18 @@ const TaskEnglish = () => {
                 <View key={index} style={styles.savedTaskContainer}>
                     <Text style={styles.savedTaskText}>{savedTask}</Text>
                     <TouchableOpacity style={styles.editButton} onPress={() => handleEditTask(index)}>
-                        <Text style={styles.buttonText}>Editar</Text>
+                        <AntDesign name="edit" size={24} color="white" />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.deleteButton} onPress={() => handleDeleteTask(index)}>
-                        <Text style={styles.buttonText}>Eliminar</Text>
+                        <AntDesign name="delete" size={24} color="white" />
                     </TouchableOpacity>
                 </View>
             ))}
         </ScrollView>
     );
-  };
+};
 
-  export default TaskEnglish;
+export default TaskEnglish;
 
 const styles = StyleSheet.create({
     container: {

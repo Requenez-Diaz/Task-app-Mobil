@@ -1,6 +1,7 @@
 // TaskItem.tsx
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { AntDesign, } from '@expo/vector-icons';
 
 interface TaskItemProps {
     task: string;
@@ -13,10 +14,10 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onEdit, onDelete }) => {
         <View style={styles.savedTaskContainer}>
             <Text style={styles.savedTaskText}>{task}</Text>
             <TouchableOpacity style={styles.editButton} onPress={onEdit}>
-                <Text style={styles.buttonText}>Editar</Text>
+                <AntDesign name="edit" size={24} color="white" />
             </TouchableOpacity>
             <TouchableOpacity style={styles.deleteButton} onPress={onDelete}>
-                <Text style={styles.buttonText}>Eliminar</Text>
+                <AntDesign name="delete" size={24} color="white" />
             </TouchableOpacity>
         </View>
     );
@@ -49,9 +50,6 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         padding: 8,
         marginLeft: 8,
-    },
-    buttonText: {
-        color: '#FFFFFF',
     },
 });
 
