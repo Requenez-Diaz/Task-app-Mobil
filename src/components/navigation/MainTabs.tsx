@@ -2,10 +2,11 @@
 
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Octicons, MaterialIcons } from "@expo/vector-icons";
+import { Octicons, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import Menu from "../screen/Menu";
 import Subject from "../screen/Subject";
 import Home from "../screen/Home";
+import Account from "../../../components/account/Account";
 
 const Tab = createBottomTabNavigator();
 
@@ -65,6 +66,26 @@ const MainTabs = () => {
           tabBarLabel: "",
           tabBarIcon: ({ color }) => (
             <MaterialIcons name='library-add' size={24} color={color} />
+          ),
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name='Account'
+        component={Account}
+        options={{
+          headerStyle: {
+            backgroundColor: "#f45133",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+            fontSize: 25,
+          },
+          headerTitleAlign: "center",
+          tabBarLabel: "",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="account-cog-outline" size={24} color={color} />
           ),
           headerShown: false,
         }}

@@ -1,133 +1,120 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import { StyleSheet, Text, View } from "react-native";
+import SubjectItem from "./SubjectItem";
 
 interface Props {
   navigation: any;
 }
 
-const Subject = ({ navigation }: Props): JSX.Element => {
-
-  const handleLiteraturaPress = () => {
-    navigation.navigate('ClassLiteratura');
-  };
-
-  const handleMatematicPress = () => {
-    navigation.navigate('ClassMatematica');
-  };
-
-  const handleInglesPress = () => {
-    navigation.navigate('ClassEnglish');
-  };
-
-  const handleCienciaPress = () => {
-    navigation.navigate('ClassCiencia');
-  };
-
-  const handleHistoriaPress = () => {
-    navigation.navigate('ClassHistoria');
-  };
-  const handleArtePress = () => {
-    navigation.navigate('ClassArte');
+const Subject: React.FC<Props> = ({ navigation }) => {
+  const handlePress = (route: string) => {
+    navigation.navigate(route);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.subject}>My Subjects:</Text>
-
-      <View style={styles.rowContainer}>
-        <TouchableOpacity onPress={handleLiteraturaPress}>
-          <View style={styles.clas}>
-            <View style={styles.icons}>
-              <AntDesign name='book' size={60} color='white' />
-              <Text style={styles.text}>Literatura</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={handleMatematicPress}>
-          <View style={styles.clas}>
-            <View style={styles.icons}>
-              <AntDesign name='calculator' size={60} color='white' />
-              <Text style={styles.text}>Matemática</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={handleInglesPress}>
-          <View style={styles.clas}>
-            <View style={styles.icons}>
-              <AntDesign name='flag' size={60} color='white' />
-              <Text style={styles.text}>Inglés</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>¡Bienvenido a tus Clases!</Text>
+        <Text style={styles.introText}>
+          Explora y elige tus materias favoritas para comenzar.
+        </Text>
       </View>
 
-      <View style={styles.rowContainer}>
-        <TouchableOpacity onPress={handleCienciaPress}>
-          <View style={styles.clas}>
-            <View style={styles.icons}>
-              <AntDesign name='book' size={60} color='white' />
-              <Text style={styles.text}>Ciencias</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
+      <View style={styles.subjectContainer}>
+        <Text style={styles.subject}>Mis Materias:</Text>
 
-        <TouchableOpacity onPress={handleHistoriaPress}>
-          <View style={styles.clas}>
-            <View style={styles.icons}>
-              <AntDesign name='book' size={60} color='white' />
-              <Text style={styles.text}>Historia</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
+        <View style={styles.rowContainer}>
+          <SubjectItem
+            iconName="book"
+            text="Literatura"
+            onPress={() => handlePress("ClassLiteratura")}
+          />
 
-        <TouchableOpacity onPress={handleArtePress}>
-          <View style={styles.clas}>
-            <View style={styles.icons}>
-              <AntDesign name='picture' size={60} color='white' />
-              <Text style={styles.text}>Arte</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
+          <SubjectItem
+            iconName="calculator"
+            text="Matemática"
+            onPress={() => handlePress("ClassMatematica")}
+          />
+
+          <SubjectItem
+            iconName="flag"
+            text="Inglés"
+            onPress={() => handlePress("ClassEnglish")}
+          />
+        </View>
+
+        <View style={styles.rowContainer}>
+          <SubjectItem
+            iconName="book"
+            text="Ciencias"
+            onPress={() => handlePress("ClassCiencia")}
+          />
+
+          <SubjectItem
+            iconName="book"
+            text="Historia"
+            onPress={() => handlePress("ClassHistoria")}
+          />
+
+          <SubjectItem
+            iconName="picture"
+            text="Arte"
+            onPress={() => handlePress("ClassArte")}
+          />
+        </View>
       </View>
-
     </View>
   );
 };
-
-export default Subject;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#f0f0f0",
   },
-  subject: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  rowContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-  },
-  text: {
-    color: "black",
-    fontSize: 15,
-    fontWeight: "bold",
-  },
-  clas: {
-    width: 90,
-    height: 90,
-    backgroundColor: "#0693e3",
-    borderRadius: 20,
-    margin: 5
-  },
-  icons: {
-    flex: 1,
-    justifyContent: "center",
+  header: {
+    marginBottom: 20,
     alignItems: "center",
   },
+  headerText: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#0077cc",
+    marginBottom: 8,
+  },
+  introText: {
+    fontSize: 18,
+    color: "#444",
+    textAlign: "center",
+    paddingHorizontal: 20,
+  },
+  subjectContainer: {
+    backgroundColor: "#ffffff",
+    padding: 16,
+    borderRadius: 10,
+    elevation: 4,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+  },
+  subject: {
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 16,
+    color: "#0077cc",
+  },
+  rowContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginBottom: 16,
+  },
 });
+
+export default Subject;

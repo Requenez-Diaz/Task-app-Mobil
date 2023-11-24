@@ -12,7 +12,6 @@ const MyComponent = () => {
   return (
     <>
       <ProfileProps />
-
       <ScrollView>
         <CardContainer />
         <Users />

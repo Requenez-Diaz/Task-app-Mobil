@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { AntDesign } from '@expo/vector-icons';
 
 const TaskMatematica = () => {
     const [task, setTask] = useState<string>('');
@@ -95,10 +94,10 @@ const TaskMatematica = () => {
                 <View key={index} style={styles.savedTaskContainer}>
                     <Text style={styles.savedTaskText}>{savedTask}</Text>
                     <TouchableOpacity style={styles.editButton} onPress={() => handleEditTask(index)}>
-                        <AntDesign name="edit" size={24} color="white" />
+                        <Text style={styles.buttonText}>Editar</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.deleteButton} onPress={() => handleDeleteTask(index)}>
-                        <AntDesign name="delete" size={24} color="white" />
+                        <Text style={styles.buttonText}>Eliminar</Text>
                     </TouchableOpacity>
                 </View>
             ))}

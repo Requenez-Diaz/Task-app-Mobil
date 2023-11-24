@@ -1,7 +1,11 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-
+import TaskLiteratura from "../screen/tasks/TaskLiteratura";
+import TaskMatematica from "../screen/tasks/TaskMatematica";
+import TaskEnglish from "../screen/tasks/TaskEnglish";
+import TaskCiencia from "../screen/tasks/TaskCiencia";
+import TaskHistoria from "../screen/tasks/TaskHistoria";
 import Home from "../screen/Home";
 import MainTabs from "./MainTabs";
 import RegisterLogin from "../Login/RegisterLogin";
@@ -62,8 +66,8 @@ const HomeStack = () => {
           }}
         />
         <Stack.Screen
-          name='TasckLiteratura'
-          component={TasckLiteratura}
+          name='TaskLiteratura'
+          component={TaskLiteratura}
           options={{
             headerShown: true,
           }}
@@ -76,8 +80,8 @@ const HomeStack = () => {
           }}
         />
         <Stack.Screen
-          name='TasckMatematica'
-          component={TasckMatematica}
+          name='TaskMatematica'
+          component={TaskMatematica}
           options={{
             headerShown: false,
           }}
@@ -90,8 +94,8 @@ const HomeStack = () => {
           }}
         />
         <Stack.Screen
-          name='TasckEnglish'
-          component={TasckEnglish}
+          name='TaskEnglish'
+          component={TaskEnglish}
           options={{
             headerShown: false,
           }}
@@ -104,8 +108,8 @@ const HomeStack = () => {
           }}
         />
         <Stack.Screen
-          name='TasckCiencia'
-          component={TasckCiencia}
+          name='TaskCiencia'
+          component={TaskCiencia}
           options={{
             headerShown: false,
           }}
@@ -118,8 +122,8 @@ const HomeStack = () => {
           }}
         />
         <Stack.Screen
-          name='TasckHistoria'
-          component={TasckHistoria}
+          name='TaskHistoria'
+          component={TaskHistoria}
           options={{
             headerShown: false,
           }}

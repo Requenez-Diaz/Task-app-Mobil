@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { AntDesign } from '@expo/vector-icons';
 
-const TaskMatematica = () => {
+const TaskEnglish = () => {
     const [task, setTask] = useState<string>('');
     const [savedTasks, setSavedTasks] = useState<string[]>([]);
     const [editingTaskIndex, setEditingTaskIndex] = useState<number | null>(null);
@@ -15,7 +14,7 @@ const TaskMatematica = () => {
 
     const retrieveSavedTasks = async () => {
         try {
-            const savedTasksString = await AsyncStorage.getItem('savedTasks');
+            const savedTasksString = await AsyncStorage.getItem('savedTasksIngles');
             if (savedTasksString) {
                 setSavedTasks(JSON.parse(savedTasksString));
             }
@@ -39,7 +38,7 @@ const TaskMatematica = () => {
                     setSavedTasks(updatedTasks);
                 }
 
-                await AsyncStorage.setItem('savedTasks', JSON.stringify(savedTasks));
+                await AsyncStorage.setItem('savedTasksIngles', JSON.stringify(savedTasks));
                 setTask('');
             } catch (error) {
                 console.error('Error al guardar la tarea:', error);
@@ -57,7 +56,7 @@ const TaskMatematica = () => {
         try {
             const updatedTasks = savedTasks.filter((_, i) => i !== index);
             setSavedTasks(updatedTasks);
-            await AsyncStorage.setItem('savedTasks', JSON.stringify(updatedTasks));
+            await AsyncStorage.setItem('savedTasksIngles', JSON.stringify(updatedTasks));
             setEditingTaskIndex(null);
             setTask('');
         } catch (error) {
@@ -67,17 +66,17 @@ const TaskMatematica = () => {
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <Text style={styles.welcomeText}>¡Bienvenido a la tarea creativa!</Text>
+            <Text style={styles.welcomeText}>¡Bienvenido a la tarea creativa de Inglés!</Text>
 
             <View style={styles.taskContainer}>
-                <Text style={styles.sectionTitle}>Tarea Creativa</Text>
+                <Text style={styles.sectionTitle}>Tarea Creativa de Inglés</Text>
                 <Text style={styles.taskDescription}>
-                    ¡Inspírate! Resuelve un problema matemático desafiante y comparte tu solución en el foro para explorar el fascinante mundo de las matemáticas.
+                    ¡Inspírate! Escribe un breve párrafo en inglés sobre un tema que te apasione y compártelo en el foro para explorar el mundo del idioma inglés.
                 </Text>
             </View>
 
             <View style={styles.inputContainer}>
-                <Text style={styles.inputLabel}>Tu Solución Matemática:</Text>
+                <Text style={styles.inputLabel}>Tu Párrafo en Inglés:</Text>
                 <TextInput
                     multiline
                     style={styles.input}
@@ -95,18 +94,18 @@ const TaskMatematica = () => {
                 <View key={index} style={styles.savedTaskContainer}>
                     <Text style={styles.savedTaskText}>{savedTask}</Text>
                     <TouchableOpacity style={styles.editButton} onPress={() => handleEditTask(index)}>
-                        <AntDesign name="edit" size={24} color="white" />
+                        <Text style={styles.buttonText}>Editar</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.deleteButton} onPress={() => handleDeleteTask(index)}>
-                        <AntDesign name="delete" size={24} color="white" />
+                        <Text style={styles.buttonText}>Eliminar</Text>
                     </TouchableOpacity>
                 </View>
             ))}
         </ScrollView>
     );
-};
+  };
 
-export default TaskMatematica;
+  export default TaskEnglish;
 
 const styles = StyleSheet.create({
     container: {

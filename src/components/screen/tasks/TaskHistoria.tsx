@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { AntDesign } from '@expo/vector-icons';
 
-const TaskMatematica = () => {
+const TaskHistoria = () => {
     const [task, setTask] = useState<string>('');
     const [savedTasks, setSavedTasks] = useState<string[]>([]);
     const [editingTaskIndex, setEditingTaskIndex] = useState<number | null>(null);
@@ -15,7 +14,7 @@ const TaskMatematica = () => {
 
     const retrieveSavedTasks = async () => {
         try {
-            const savedTasksString = await AsyncStorage.getItem('savedTasks');
+            const savedTasksString = await AsyncStorage.getItem('savedTasksHistoria');
             if (savedTasksString) {
                 setSavedTasks(JSON.parse(savedTasksString));
             }
@@ -39,7 +38,7 @@ const TaskMatematica = () => {
                     setSavedTasks(updatedTasks);
                 }
 
-                await AsyncStorage.setItem('savedTasks', JSON.stringify(savedTasks));
+                await AsyncStorage.setItem('savedTasksHistoria', JSON.stringify(savedTasks));
                 setTask('');
             } catch (error) {
                 console.error('Error al guardar la tarea:', error);
@@ -57,7 +56,7 @@ const TaskMatematica = () => {
         try {
             const updatedTasks = savedTasks.filter((_, i) => i !== index);
             setSavedTasks(updatedTasks);
-            await AsyncStorage.setItem('savedTasks', JSON.stringify(updatedTasks));
+            await AsyncStorage.setItem('savedTasksHistoria', JSON.stringify(updatedTasks));
             setEditingTaskIndex(null);
             setTask('');
         } catch (error) {
@@ -67,17 +66,17 @@ const TaskMatematica = () => {
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <Text style={styles.welcomeText}>¡Bienvenido a la tarea creativa!</Text>
+            <Text style={styles.welcomeText}>¡Bienvenido a la tarea creativa de Historia!</Text>
 
             <View style={styles.taskContainer}>
-                <Text style={styles.sectionTitle}>Tarea Creativa</Text>
+                <Text style={styles.sectionTitle}>Tarea Creativa de Historia</Text>
                 <Text style={styles.taskDescription}>
-                    ¡Inspírate! Resuelve un problema matemático desafiante y comparte tu solución en el foro para explorar el fascinante mundo de las matemáticas.
+                    ¡Inspírate! Escribe sobre un evento histórico fascinante y comparte tus reflexiones en el foro para explorar el apasionante mundo de la historia.
                 </Text>
             </View>
 
             <View style={styles.inputContainer}>
-                <Text style={styles.inputLabel}>Tu Solución Matemática:</Text>
+                <Text style={styles.inputLabel}>Tu Reflexión Histórica:</Text>
                 <TextInput
                     multiline
                     style={styles.input}
@@ -95,10 +94,10 @@ const TaskMatematica = () => {
                 <View key={index} style={styles.savedTaskContainer}>
                     <Text style={styles.savedTaskText}>{savedTask}</Text>
                     <TouchableOpacity style={styles.editButton} onPress={() => handleEditTask(index)}>
-                        <AntDesign name="edit" size={24} color="white" />
+                        <Text style={styles.buttonText}>Editar</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.deleteButton} onPress={() => handleDeleteTask(index)}>
-                        <AntDesign name="delete" size={24} color="white" />
+                        <Text style={styles.buttonText}>Eliminar</Text>
                     </TouchableOpacity>
                 </View>
             ))}
@@ -106,12 +105,10 @@ const TaskMatematica = () => {
     );
 };
 
-export default TaskMatematica;
-
 const styles = StyleSheet.create({
     container: {
         padding: 16,
-        backgroundColor: '#F8F8F8',
+        backgroundColor: '#F9F9F9',
     },
     welcomeText: {
         fontSize: 28,
@@ -192,3 +189,5 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
     },
 });
+
+export default TaskHistoria;
