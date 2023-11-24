@@ -1,12 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import MyComponent from "../container/ContainerHome";
+import ContainerUsers from "../home/addUsers/ContainerUsers";
 
 const Home = () => {
   return (
-    <View>
+    <>
       <MyComponent />
-    </View>
+    </>
   );
 };
 
