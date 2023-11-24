@@ -1,17 +1,31 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 interface ProfileProps {
+  imageUri: string | null;
+  darkMode: boolean;
   name: string;
-  avatar: {};
 }
 
-const Profile = ({ name, avatar }: ProfileProps) => {
+const Profile = ({ 
+  imageUri, 
+  darkMode, 
+  name
+ }: ProfileProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.profile}>
         <View>
-          <Image style={styles.image} source={avatar} />
+        {imageUri ? (
+                <Image source={{ uri: imageUri }} style={styles.image} />
+            ) : (
+                <MaterialCommunityIcons
+                    name="account-circle"
+                    size={120}
+                    color={darkMode ? '#ffffff' : '#333333'}
+                />
+            )}
         </View>
         <Text style={styles.text}>{name}</Text>
       </View>
@@ -23,12 +37,10 @@ export default Profile;
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
+    paddingTop:40,
+    paddingHorizontal: 10,
+    paddingBottom: 10,
     backgroundColor: "#225480",
-    alignItems: "center",
-    padding: 20,
   },
   profile: {
     flexDirection: "row",
