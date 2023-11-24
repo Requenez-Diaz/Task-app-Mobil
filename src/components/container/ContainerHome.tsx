@@ -11,7 +11,7 @@ const MyComponent = () => {
     <View>
       <ProfileProps />
       <CardContainer />
-      <Users />
+      <Users/>
     </View>
   );
 };
