@@ -11,7 +11,7 @@ const usersData: UserData[] = [
     },
   },
   {
-    name: "Aaron",
+    name: "Baron",
     img: { uri: "https://i.imgur.com/mxMUYqt.gif" },
   },
   {

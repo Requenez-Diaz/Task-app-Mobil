@@ -2,7 +2,7 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import UsersProps from "./UsersProps";
 import usersData from "../../../data/user.data";
-import { Badge } from "@rneui/base";
+
 
 const Users = () => {
   return (

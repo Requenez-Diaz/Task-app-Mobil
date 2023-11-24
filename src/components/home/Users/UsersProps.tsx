@@ -5,7 +5,7 @@ import { Badge } from "@rneui/base";
 
 interface UsersProps {
   nameI: string;
-  img: { uri: string };
+  img?: { uri: string };
   isActive?: boolean;
 }
 
@@ -18,14 +18,19 @@ const UsersProps = ({ nameI, img, isActive = true }: UsersProps) => {
   return (
     <View>
       <View>
-        <View style={styles.imageContainer}>
-          <Image source={img} style={styles.image} />
-
-          <View>
-            <Text style={styles.initialText}>{initial}</Text>
-            {isActive && <Text style={styles.activeBadgeText}>Activo</Text>}
+        {img ? (
+          <View style={styles.imageContainer}>
+            <Image source={img} style={styles.image} />
+            <View style={styles.overlayContainer}>
+              {isActive && <Text style={styles.activeBadgeText}>A</Text>}
+            </View>
           </View>
-        </View>
+        ) : (
+          <View style={styles.initialContainer}>
+            <Text style={styles.initialText}>{initial}</Text>
+            {isActive}
+          </View>
+        )}
         <View style={styles.textContainer}>
           <Text>{nameI}</Text>
         </View>
@@ -38,8 +43,15 @@ export default UsersProps;
 
 const styles = StyleSheet.create({
   imageContainer: {
+    position: "relative", // Para permitir la posición absoluta de los elementos secundarios
     marginBottom: 10,
     marginTop: 10,
+  },
+  overlayContainer: {
+    position: "absolute", // Para posicionar encima de la imagen
+    top: 0,
+    right: 0,
+    alignItems: "center",
   },
   image: {
     width: 100,
@@ -68,11 +80,8 @@ const styles = StyleSheet.create({
     backgroundColor: "green",
   },
   activeBadgeText: {
-    position: "absolute",
-    bottom: 0,
-    right: 0,
     backgroundColor: "green",
-    color: "green",
+    color: "white",
     padding: 5,
     borderRadius: 50,
   },
