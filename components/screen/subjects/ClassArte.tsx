@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, Linking } from 'react-native';
-import HeaderArte from '../LessonArte/HeaderArte';
-import CardArte from '../LessonArte/CardArte';
+import HeaderArte from '../../Leassons/LessonArte/HeaderArte';
+import CardArte from '../../Leassons/LessonArte/CardArte';
 
 interface Props {
   navigation: any;

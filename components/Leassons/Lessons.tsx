@@ -1,26 +1,28 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+interface LessonSectionProps {
+    title: string;
+    content: string;
+}
 
-const LessonHistoria: React.FC = () => {
+const Lessons: React.FC<LessonSectionProps> = ({ title, content }) => {
     return (
-        <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Un Viaje en el Tiempo</Text>
-            <Text style={styles.lessonText}>
-                Exploraremos eventos históricos clave que han dado forma al mundo en el que vivimos.
-            </Text>
+        <View style={styles.leassonContainer}>
+            <Text style={styles.leassonTitle}>{title}</Text>
+            <Text style={styles.lessonText}>{content}</Text>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    sectionContainer: {
+    leassonContainer: {
         marginBottom: 20,
         backgroundColor: '#FFFFFF',
         borderRadius: 10,
         padding: 16,
         elevation: 5,
     },
-    sectionTitle: {
+    leassonTitle: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 12,
@@ -33,4 +35,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LessonHistoria;
+export default Lessons;
