@@ -1,25 +1,27 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+// AddUsers Component
 import React from "react";
-
-import usersData from "../../../data/user.data";
+import { View, Text, StyleSheet } from "react-native";
 import AddUsersProps from "./AddUsersProps";
+import usersData from "../../../data/user.data";
 
-const AddUser = () => {
+const AddUsers = () => {
   return (
-    <ScrollView>
-      <Text style={styles.header}>Add Users</Text>
+    <>
+      <Text style={styles.header}>Sugerencias para ti</Text>
       <View style={styles.container}>
         {usersData.map((user, index) => (
           <AddUsersProps key={index} nameI={user.name} img={user.img} />
         ))}
       </View>
-    </ScrollView>
+    </>
   );
 };
 
-export default AddUser;
-
 const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    // Otros estilos según sea necesario
+  },
   header: {
     fontSize: 20,
     fontWeight: "bold",
@@ -27,7 +29,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 10,
   },
-  container: {
-    display: "flex",
-  },
 });
+
+export default AddUsers;

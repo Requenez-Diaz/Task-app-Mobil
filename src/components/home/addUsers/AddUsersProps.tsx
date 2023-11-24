@@ -7,7 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-import { AntDesign, SimpleLineIcons } from "@expo/vector-icons";
+import { AntDesign, SimpleLineIcons, MaterialIcons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 interface AddUsersProps {
@@ -20,6 +20,7 @@ const AddUsersProps: React.FC<AddUsersProps> = ({
   img,
 }: AddUsersProps) => {
   const [isFollowed, setIsFollowed] = useState(false);
+  const [deleted, setDeleted] = useState(false);
 
   const handleFollow = async () => {
     try {
@@ -47,6 +48,31 @@ const AddUsersProps: React.FC<AddUsersProps> = ({
     }
   };
 
+  const handleDelete = async () => {
+    try {
+      const savedUsers = await AsyncStorage.getItem("followedUsers");
+      const followedUsers = savedUsers ? JSON.parse(savedUsers) : [];
+
+      const userIndex = followedUsers.findIndex(
+        (user: any) => user.name === nameI
+      );
+
+      if (userIndex !== -1) {
+        followedUsers.splice(userIndex, 1);
+        setDeleted(true);
+      }
+
+      await AsyncStorage.setItem(
+        "followedUsers",
+        JSON.stringify(followedUsers)
+      );
+
+      setDeleted(false);
+    } catch (error) {
+      console.error("Error manipulating AsyncStorage:", error);
+    }
+  };
+
   useEffect(() => {
     const checkFollowStatus = async () => {
       try {
@@ -69,7 +95,7 @@ const AddUsersProps: React.FC<AddUsersProps> = ({
   }, [nameI]);
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.scrollView}>
       <View style={styles.card}>
         <View style={styles.cardContent}>
           {img && <Image style={styles.image} source={img} />}
@@ -85,7 +111,14 @@ const AddUsersProps: React.FC<AddUsersProps> = ({
               />
             </TouchableOpacity>
             <TouchableOpacity style={styles.icon}>
-              <SimpleLineIcons name='user-following' size={24} color='green' />
+              <SimpleLineIcons name='user-following' size={24} color='blue' />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleDelete}>
+              <MaterialIcons
+                name={deleted ? "undo" : "delete-forever"}
+                size={24}
+                color={deleted ? "black" : "red"}
+              />
             </TouchableOpacity>
           </View>
         </View>
@@ -94,9 +127,10 @@ const AddUsersProps: React.FC<AddUsersProps> = ({
   );
 };
 
-export default AddUsersProps;
-
 const styles = StyleSheet.create({
+  scrollView: {
+    flexGrow: 1,
+  },
   card: {
     backgroundColor: "white",
     borderRadius: 10,
@@ -134,3 +168,5 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
 });
+
+export default AddUsersProps;
