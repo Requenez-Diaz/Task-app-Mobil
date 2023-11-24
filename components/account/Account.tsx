@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, StyleSheet, Alert, Switch } from 'react-native';
+import { ScrollView, StyleSheet, Alert, Switch, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as ImagePicker from 'expo-image-picker';
 
@@ -12,8 +12,8 @@ import Privacy from './Privacy';
 
 const Account: React.FC = () => {
     const [darkMode, setDarkMode] = useState(false);
-    const [name, setName] = useState('Elliam Sánchez');
-    const [email, setEmail] = useState('elliamsanchez510@gmail.com');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [profileImage, setProfileImage] = useState<string | null>(null);
     const [receiveNotifications, setReceiveNotifications] = useState(false);
     const [privateAccount, setPrivateAccount] = useState(false);
@@ -21,6 +21,7 @@ const Account: React.FC = () => {
     useEffect(() => {
         loadProfileImage();
         // Aquí puedes cargar otras configuraciones si es necesario
+        
     }, []);
 
     const toggleDarkMode = () => {
@@ -87,14 +88,14 @@ const Account: React.FC = () => {
     };
 
     return (
-        <ScrollView style={darkMode ? styles.containerDark : styles.containerLight}>
+        <View style={darkMode ? styles.containerDark : styles.containerLight}>
             <ProfileImage imageUri={profileImage} darkMode={darkMode} onPress={pickImage} />
             <UserDetails name={name} email={email} darkMode={darkMode} onNameChange={onNameChange} onEmailChange={onEmailChange} />
             <Settings darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
             <Notification receiveNotifications={receiveNotifications} onToggleNotifications={toggleNotifications} />
             <Privacy privateAccount={privateAccount} onTogglePrivacy={togglePrivacy} />
             <LogoutButton darkMode={darkMode} />
-        </ScrollView>
+        </View>
     );
 };
 
