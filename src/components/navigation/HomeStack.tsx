@@ -1,27 +1,25 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+
 import TaskLiteratura from "../screen/tasks/TaskLiteratura";
 import TaskMatematica from "../screen/tasks/TaskMatematica";
 import TaskEnglish from "../screen/tasks/TaskEnglish";
 import TaskCiencia from "../screen/tasks/TaskCiencia";
 import TaskHistoria from "../screen/tasks/TaskHistoria";
+
 import Home from "../screen/Home";
 import MainTabs from "./MainTabs";
 import RegisterLogin from "../Login/RegisterLogin";
 import LogIn from "../Login/LogIn";
+
 import ClassLiteratura from "../screen/subjects/ClassLiteratura";
-import TasckLiteratura from "../screen/tasks/TasckLiteratura";
-import TasckMatematica from "../screen/tasks/TasckMatematica";
 import ClassMatematica from "../screen/subjects/ClassMatematica";
 import ClassEnglish from "../screen/subjects/ClassEnglish";
 import GaleriaArte from "../screen/tasks/GaleriaArte";
 import ClassArte from "../screen/subjects/ClassArte";
-import TasckHistoria from "../screen/tasks/TasckHistoria";
 import ClassHistoria from "../screen/subjects/ClassHistoria";
-import TasckCiencia from "../screen/tasks/TasckCiencia";
 import ClassCiencia from "../screen/subjects/ClassCiencia";
-import TasckEnglish from "../screen/tasks/TasckEnglish";
 import Subject from "../screen/Subject";
 
 const Stack = createStackNavigator();

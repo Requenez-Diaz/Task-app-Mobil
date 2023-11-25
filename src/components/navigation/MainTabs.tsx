@@ -1,12 +1,10 @@
-// MainTabs.tsx
-
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Octicons, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import Menu from "../screen/Menu";
 import Subject from "../screen/Subject";
 import Home from "../screen/Home";
-import Account from "../../../components/account/Account";
+import Account from "../screen/account/Account";
 
 const Tab = createBottomTabNavigator();
 

@@ -6,10 +6,10 @@ interface ResourceSectionProps {
     resources: { text: string; url: string }[];
 }
 
-const ResourceLiteratura: React.FC<ResourceSectionProps> = ({ title, resources }) => {
+const Resources: React.FC<ResourceSectionProps> = ({ title, resources }) => {
     return (
-        <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>{title}</Text>
+        <View style={styles.resourceContainer}>
+            <Text style={styles.resourceTitle}>{title}</Text>
             {resources.map((resource, index) => (
                 <Text key={index} style={styles.resourceText} onPress={() => Linking.openURL(resource.url)}>
                     {resource.text}
@@ -20,14 +20,14 @@ const ResourceLiteratura: React.FC<ResourceSectionProps> = ({ title, resources }
 };
 
 const styles = StyleSheet.create({
-    sectionContainer: {
+    resourceContainer: {
         marginBottom: 20,
         backgroundColor: '#FFFFFF',
         borderRadius: 10,
         padding: 16,
         elevation: 5,
     },
-    sectionTitle: {
+    resourceTitle: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 12,
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ResourceLiteratura;
+export default Resources;
